@@ -64,3 +64,7 @@ html_static_path = ['_static']
 
 
 # -- Extension configuration -------------------------------------------------
+
+# -- MyST parser --
+# Use title: key in YAML frontmatter to set document title
+myst_title_to_header = True
