@@ -1,3 +1,6 @@
+---
+title: "ACRC HPC community documentation"
+---
 % ACRC HPC community documentation documentation master file, created by
 % sphinx-quickstart on Mon Mar 21 14:51:22 2022.
 % You can adapt this file completely to your liking, but it should at least
@@ -5,7 +8,6 @@
 %
 % Converted from reStructuredText to MyST Markdown
 
-# ACRC HPC community documentation
 
 ## Introduction
 Welcome to the University of Bristol [Advanced Computing Research Centre (ACRC)][acrc-website] HPC community documentation project!
@@ -36,6 +38,7 @@ For general queries related to the ACRC and ACRC HPC facilities, please contact 
 maxdepth: 2
 caption: "Contents:"
 ---
+example-domain/index
 ```
 
 # Indices and tables
