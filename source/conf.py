@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'ACRC HPC community documentation'
-copyright = '2022, University of Bristol ACRC and researchers'
+copyright = '2022, University of Bristol'
 author = 'University of Bristol ACRC and researchers'
 
 
