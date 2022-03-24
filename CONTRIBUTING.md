@@ -131,17 +131,17 @@ It is also possible to build the documentation in other formats, e.g. PDF (see t
 
 ## Modifying and adding to the documentation
 
-% TODO
+<!-- TODO -->
 
 ## Contributing changes to the repository
 
-% TODO
+<!-- TODO -->
 
 ## Asking for help
 
-% TODO
+<!-- TODO -->
 
-% REFERENCES
+<!-- REFERENCES -->
 [acrc-website]: https://www.bristol.ac.uk/acrc/ "Advanced Computing Research Centre bristol.ac.uk website"
 [acrc-hpc-community-docs-issues]: https://github.com/ACRC/HPC-community-docs/issues "ACRC HPC community documentation GitHub Issues"
 [myst-parser]: https://myst-parser.readthedocs.io/en/latest/ "MyST - Markedly Structured Text"
