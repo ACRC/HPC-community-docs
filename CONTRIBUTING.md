@@ -130,15 +130,54 @@ It is also possible to build the documentation in other formats, e.g. PDF (see t
 > may work if your distribution provides it.
 
 ## Modifying and adding to the documentation
+### Useful resources
+While editing and adding to the documentation, the following resources may be useful to have at hand:
 
-<!-- TODO -->
+* [MyST Markdown documentation][myst-parser]: syntax and usage of the recommended markup language for documentation source files in this project
+* [Sphinx documentation][sphinx-docs]: setup and usage of the tool used to build the documentation
+* [Read the Docs Sphinx theme documentation][sphinx_rtd_theme-docs]: setup and usage of the Sphinx theme used in the generated documentation
 
+### Workflow
+A typical workflow for working on the documentation is to repeat the following three steps
+
+1. Edit the files in the `source/` directory (add, remove, or change content)
+2. [Build the documentation](#running-the-build-process)
+3. Review the result in the `build/html/` directory
+
+If the build step fails (e.g. due to a syntax error in the source files), then Sphinx will generally output a meaningful error message to the command line session.
+After correcting the error, re-run the build process (`make html`) and continue with the edit-build-review cycle.
+
+### Editing existing pages and adding new pages
+To work on an existing page, simply open a source file (usually ending `.md` or `.rst`) in the `source/` directory in a text editor, make changes, and save your changes.
+
+To add a new page to the documentation, create a new source file in the `source/` directory and add some text to it.
+
+To include content in a new page in the table of contents for the documentation, add the [document name][sphinx-document-name] of the file to the [`toctree` directive][sphinx-toctree-directive] in the root document, [`source/index.md`](source/index.md). 
+Alternatively, you can add the document name to a `toctree` in another document that is referenced (directly or indirectly) from the `toctree` in the root document.
+
+When the documentation is rebuilt, HTML generated from the edited and/or newly added pages will be included in the result in the `build/` directory.
+
+
+
+### Using MyST Markdown
+Source documents for the HPC community documentation project can be written using [MyST Markdown][myst-parser] (`.md`) or [reStructuredText][sphinx-rest-primer] (`.rst`).
+These are both [lightweight markup languages][wikipedia-lightweight-markup-language].
+We recommend using MyST Markdown, unless you have a good reason to use reStructuredText (e.g. you are starting from an existing `.rst` file).
+MyST Markdown extends the [CommonMark][commonmark] Markdown specification, to add the capabilities of reStructuredText, while retaining the clean and readable syntax of Markdown.
+
+In addition to the [MyST Markdown documentation][myst-syntax-docs], Jupyter Book's [MyST Markdown cheat sheet][myst-cheatsheet] is a useful quick reference guide for common syntax in technical documentation.
+
+The MyST Markdown documentation does not cover all the Sphinx functionality that can be used in MyST Markdown, but provides [instructions][myst-syntax-docs] on translating from reStructuredText syntax (Sphinx's native markup language) to MyST syntax.
+Sphinx/reStructuredText roles and directives documented elsewhere (e.g. in the [Sphinx documentation][sphinx-rest-doc]) can be translated for use in MyST documentation using these instructions.
+
+To simplify editing the documentation, it is advisable to use a text editor or IDE that provides Markdown support (for example syntax highlighting and preview).
+Many text editors and IDEs provide Markdown support, or have extensions that add this, so you may already have one installed.
+If you do not already have a suitable editor, [Visual Studio Code][vscode] is a good option which [supports Markdown editing and preview][vscode-markdown].
+There is also a [MyST Markdown extension for Visual Studio Code][vscode-myst-extension] (developed by [the Executable Book Project][executable-book-project]) that adds additional MyST-Markdown-specific capabilities to the editor.
 ## Contributing changes to the repository
-
 <!-- TODO -->
 
 ## Asking for help
-
 <!-- TODO -->
 
 <!-- REFERENCES -->
@@ -158,3 +197,15 @@ It is also possible to build the documentation in other formats, e.g. PDF (see t
 [pro-git]: https://git-scm.com/book/en/v2 "Pro Git"
 [sphinx-build]: https://www.sphinx-doc.org/en/master/man/sphinx-build.html "sphinx-build command"
 [sphinx-builders]: https://www.sphinx-doc.org/en/master/usage/builders/index.html "Sphinx builders"
+[sphinx-document-name]: https://www.sphinx-doc.org/en/master/glossary.html#term-document-name "Sphinx Glossary: document name"
+[sphinx-toctree-directive]: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree "Sphinx toctree directive"
+[wikipedia-lightweight-markup-language]: https://en.wikipedia.org/wiki/Lightweight_markup_language "Wikipedia: Lightweight markup language"
+[commonmark]: https://commonmark.org/ "CommonMark"
+[sphinx-docs]: https://www.sphinx-doc.org/en/master/contents.html "Sphinx documentation"
+[sphinx_rtd_theme-docs]: https://sphinx-rtd-theme.readthedocs.io/en/stable/ "Read the Docs Sphinx theme documentation"
+[myst-syntax-docs]: https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html "The MyST Syntax Guide"
+[myst-cheatsheet]: https://jupyterbook.org/reference/cheatsheet.html "MyST syntax cheat sheet"
+[sphinx-rest-doc]: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html "Sphinx reStructuredText documentation"
+[vscode-markdown]: https://code.visualstudio.com/docs/languages/markdown "Markdown and Visual Studio Code"
+[vscode-myst-extension]: https://marketplace.visualstudio.com/items?itemName=ExecutableBookProject.myst-highlight "MyST-Markdown VS Code extension"
+[executable-book-project]: https://executablebooks.org/ "The Executable Book Project"
