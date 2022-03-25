@@ -4,10 +4,7 @@
 Welcome to the University of Bristol [Advanced Computing Research Centre (ACRC)][acrc-website] HPC community documentation project!
 This project provides a space for HPC users at the University of Bristol to publish domain-specific information on how to effectively use HPC facilities managed by the ACRC at the University of Bristol.
 
-This document contains instructions for those who wish to contribute to the documentation. 
-
-We are very happy to receive contributions from HPC users at the University of Bristol.
-
+Thank you for your interest in contributing! This document collects useful information to assist you through the process of creating and submitting your contribution. 
 ## CONTENTS
 
 * [Key links](#key-links)
@@ -175,7 +172,22 @@ Many text editors and IDEs provide Markdown support, or have extensions that add
 If you do not already have a suitable editor, [Visual Studio Code][vscode] is a good option which [supports Markdown editing and preview][vscode-markdown].
 There is also a [MyST Markdown extension for Visual Studio Code][vscode-myst-extension] (developed by [the Executable Book Project][executable-book-project]) that adds additional MyST-Markdown-specific capabilities to the editor.
 ## Contributing changes to the repository
-<!-- TODO -->
+### Licensing
+All text contributions to the documentation project will be licensed under a [Creative Commons Attribution-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
+Code snippets and software included in the documentation are published under a MIT license.
+See [LICENSE.md] for full details.
+
+Before making your contribution, please ensure 
+* you are authorized to apply the licenses in [LICENSE.md](LICENSE.md) to your contribution
+* you are happy for your contribution to be published under the licenses in [LICENSE.md](LICENSE.md) 
+
+### Workflow
+The HPC community documentation project uses the [fork and pull model][fork-and-pull-model] for collaborative development.
+To develop and contribute changes to the documentation, 
+
+* Create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo]
+* ...
+<!-- TODO: workflow steps -->
 
 ## Asking for help
 <!-- TODO -->
@@ -209,3 +221,6 @@ There is also a [MyST Markdown extension for Visual Studio Code][vscode-myst-ext
 [vscode-markdown]: https://code.visualstudio.com/docs/languages/markdown "Markdown and Visual Studio Code"
 [vscode-myst-extension]: https://marketplace.visualstudio.com/items?itemName=ExecutableBookProject.myst-highlight "MyST-Markdown VS Code extension"
 [executable-book-project]: https://executablebooks.org/ "The Executable Book Project"
+[fork-and-pull-model]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models#fork-and-pull-model "Fork and pull model"
+[acrc-hpc-community-docs-repo]: https://github.com/ACRC/HPC-community-docs "ACRC HPC community documentation GitHub repository"
+[github-docs-forks]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks "Working with forks"
