@@ -175,7 +175,7 @@ There is also a [MyST Markdown extension for Visual Studio Code][vscode-myst-ext
 ### Licensing
 All text contributions to the documentation project will be licensed under a [Creative Commons Attribution-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
 Code snippets and software included in the documentation are published under a MIT license.
-See [LICENSE.md] for full details.
+See [LICENSE.md](LICENSE.md) for full details.
 
 Before making your contribution, please ensure 
 * you are authorized to apply the licenses in [LICENSE.md](LICENSE.md) to your contribution
