@@ -203,7 +203,7 @@ Merging changes from upstream `main` into active feature branches on your fork h
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
 
-If you need assistance with preparing a contribution to the HPC community documentation project, please contact [James C. Womack][uob-directory-jcwomack] (@jcwomack).
+If you need assistance with preparing a contribution to the HPC community documentation project, please contact [James C. Womack][uob-directory-jcwomack] ([@jcwomack][github-jcwomack]).
 
 <!-- REFERENCES -->
 [acrc-website]: https://www.bristol.ac.uk/acrc/ "Advanced Computing Research Centre bristol.ac.uk website"
@@ -242,3 +242,4 @@ If you need assistance with preparing a contribution to the HPC community docume
 [github-docs-sync-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork" 
 [acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
 [uob-directory-jcwomack]: https://www.bris.ac.uk/contact/person/getDetails?personKey=kbwP3F8vd3QrkvAdDAYPnFXOILXiny "James C. Womack at University of Bristol"
+[github-jcwomack]: https://github.com/jcwomack "James C. Womack on GitHub"
