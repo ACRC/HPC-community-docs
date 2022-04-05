@@ -198,9 +198,12 @@ Additional contributions can be made from the same fork, by creating a new featu
 
 To keep your fork and feature branches up-to-date, it is recommended to regularly [sync the fork][github-docs-sync-fork] with the upstream (official) repository.
 Keeping the `main` branch in your fork synchronised with the `main` branch in the upstream repository ensures contributions from others to the upstream repository are incorporated into the fork.
-Merging changes from upstream `main` into active feature branches on your fork helps avoid complex merge conflicts arising when creating a pull request. 
+Merging changes from upstream `main` into active feature branches on your fork helps avoid complex merge conflicts arising when creating a pull request.
+
 ## Asking for help
-<!-- TODO -->
+For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
+
+If you need assistance with preparing a contribution to the HPC community documentation project, please contact [James C. Womack][uob-directory-jcwomack] (@jcwomack).
 
 <!-- REFERENCES -->
 [acrc-website]: https://www.bristol.ac.uk/acrc/ "Advanced Computing Research Centre bristol.ac.uk website"
@@ -237,3 +240,5 @@ Merging changes from upstream `main` into active feature branches on your fork h
 [github-docs-forks]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks "Working with forks"
 [github-docs-pr-from-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork "Creating a pull request from a fork"
 [github-docs-sync-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork" 
+[acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
+[uob-directory-jcwomack]: https://www.bris.ac.uk/contact/person/getDetails?personKey=kbwP3F8vd3QrkvAdDAYPnFXOILXiny "James C. Womack at University of Bristol"
