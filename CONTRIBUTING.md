@@ -182,13 +182,23 @@ Before making your contribution, please ensure
 * you are happy for your contribution to be published under the licenses in [LICENSE.md](LICENSE.md) 
 
 ### Workflow
-The HPC community documentation project uses the [fork and pull model][fork-and-pull-model] for collaborative development.
+The HPC community documentation project uses the [fork and pull model][fork-and-pull-model] for collaborative development (also known as the [forking workflow][forking-workflow]).
 To develop and contribute changes to the documentation, 
 
-* Create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo]
-* ...
-<!-- TODO: workflow steps -->
+* Create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo] on GitHub
+* Clone the forked repository onto your local machine
+* Create a feature branch in the forked repository
+* Commit additions and changes to the feature branch in the forked repository
+* Push the updated feature branch to the forked repository
+* When the changes in the feature branch are ready to contribute, [create a pull request from the fork][github-docs-pr-from-fork] which requests merging changes from the feature branch into `main` in the upstream repository
+* The pull request will be reviewed by maintainers, and changes/refinements may be requested
+* Once the pull request is approved by reviewers, it will be merged into `main`
 
+Additional contributions can be made from the same fork, by creating a new feature branch in the fork.
+
+To keep your fork and feature branches up-to-date, it is recommended to regularly [sync the fork][github-docs-sync-fork] with the upstream (official) repository.
+Keeping the `main` branch in your fork synchronised with the `main` branch in the upstream repository ensures contributions from others to the upstream repository are incorporated into the fork.
+Merging changes from upstream `main` into active feature branches on your fork helps avoid complex merge conflicts arising when creating a pull request. 
 ## Asking for help
 <!-- TODO -->
 
@@ -222,5 +232,8 @@ To develop and contribute changes to the documentation,
 [vscode-myst-extension]: https://marketplace.visualstudio.com/items?itemName=ExecutableBookProject.myst-highlight "MyST-Markdown VS Code extension"
 [executable-book-project]: https://executablebooks.org/ "The Executable Book Project"
 [fork-and-pull-model]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models#fork-and-pull-model "Fork and pull model"
+[forking-workflow]: https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow "Forking Workflow"
 [acrc-hpc-community-docs-repo]: https://github.com/ACRC/HPC-community-docs "ACRC HPC community documentation GitHub repository"
 [github-docs-forks]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks "Working with forks"
+[github-docs-pr-from-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork "Creating a pull request from a fork"
+[github-docs-sync-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork" 
