@@ -1,11 +1,16 @@
 name: actions-testing
 on: [push]
+
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
+    env:
+      CONDA_RUN: conda run --name HPC-community-docs-env 
     steps:
       - uses: actions/checkout@v3
       - name: Print current directory
@@ -21,4 +26,6 @@ jobs:
       # Use conda run to run commands in an environment. Each job step runs in a
       # separate process, so cannot use conda activate to work in an environment
       - name: Check sphinx-build
-        run: conda run --name HPC-community-docs-env sphinx-build --version
+        run: ${CONDA_RUN} sphinx-build --version
+      - name: Build the documentation
+        run: ${CONDA_RUN} sphinx-build -M html source build
