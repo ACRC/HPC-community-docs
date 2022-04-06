@@ -12,6 +12,6 @@ jobs:
         run: pwd
       - name: Print user information
         run: whoami
-      - name: Deliberately fail
-        run: exit 1
+      - name: Is Conda installed?
+        run: conda info
         
