@@ -21,4 +21,4 @@ jobs:
       # Use conda run to run commands in an environment. Each job step runs in a
       # separate process, so cannot use conda activate to work in an environment
       - name: Check sphinx-build
-        run: conda run --name HPC-community-docs-env -- sphinx-build --version
+        run: conda run --name HPC-community-docs-env sphinx-build --version
