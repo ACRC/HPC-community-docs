@@ -1,5 +1,4 @@
 # HPC-community-docs
-ACRC community HPC documentation: domain-specific information for HPC users
 
 ## Description
 The HPC community documentation project provides a space for HPC users at the University of Bristol to publish domain-specific information on how to effectively use HPC facilities managed by the [ACRC][acrc-website] at the University of Bristol.
