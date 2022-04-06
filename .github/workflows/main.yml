@@ -14,4 +14,12 @@ jobs:
         run: whoami
       - name: Is Conda installed?
         run: conda info
+      # Miniconda is pre-installed in Ubuntu 20.04 runner
+      # https://github.com/actions/virtual-environments/blob/ubuntu20/20220330.0/images/linux/Ubuntu2004-Readme.md
+      - name: Create Conda environment
+        run: conda env create --file environment.yml
+      - name: Activate Conda environment
+        run: conda activate HPC-community-docs-env
+      - name: Check sphinx-build
+        run: sphinx-build --version
         
