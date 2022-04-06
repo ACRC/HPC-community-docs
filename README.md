@@ -25,6 +25,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidance on making a contrib
 * Building the documentation on your computer
 * Modifying and adding to the documentation
 * Contributing changes to the repository
+
 ## Contributors
 The HPC community documentation consists of contributions from HPC users at the University of Bristol.
 For a list of current contributors, see our [humans.txt](humans.txt) (see [humanstxt.org][humanstxt-website] for information about the `humans.txt` format).  
