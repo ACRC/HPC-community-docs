@@ -26,6 +26,6 @@ jobs:
       # Use conda run to run commands in an environment. Each job step runs in a
       # separate process, so cannot use conda activate to work in an environment
       - name: Check sphinx-build
-        run: ${CONDA_RUN} sphinx-build --version
+        run: ${{ env.CONDA_RUN }} sphinx-build --version
       - name: Build the documentation
-        run: ${CONDA_RUN} sphinx-build -M html source build
+        run: ${{ env.CONDA_RUN }} sphinx-build -M html source build
