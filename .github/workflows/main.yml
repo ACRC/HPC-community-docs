@@ -39,6 +39,9 @@ jobs:
           path: build/html/
   deploy:
     needs: build
+    if: >
+      github.repository == 'ACRC/HPC-community-docs' &&
+      github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     defaults:
       run:
