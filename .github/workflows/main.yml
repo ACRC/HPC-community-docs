@@ -51,6 +51,9 @@ jobs:
       run:
         shell: bash
     steps:
+      # actions/checkout required by JamesIves/github-pages-depoy-action
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Get github.repository and github.ref values
         run: |
           echo '${{ github.repository}}'
@@ -63,3 +66,11 @@ jobs:
           path: built-html-docs
       - name: Display contents of HTML documentation directory
         run: ls -R ${{ steps.download-built-html-docs.outputs.download-path }}
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages
+          folder: build/html/
+          # TODO Limit access of workflow/job through GITHUB_TOKEN to only 
+          # necessary permissions
+          token: ${{ secrets.GITHUB_TOKEN }}
