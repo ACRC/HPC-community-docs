@@ -66,6 +66,8 @@ jobs:
           path: _built-html-docs
       - name: Create .nojekyll
         run: touch ${{ steps.download.outputs.download-path }}/.nojekyll
+      - name: Copy humans.txt for this commit
+        run: cp -v -n humans.txt ${{ steps.download.outputs.download-path }}/
       - name: Display contents of HTML documentation directory
         run: ls -R ${{ steps.download.outputs.download-path }}
       - name: Deploy to gh-pages branch
