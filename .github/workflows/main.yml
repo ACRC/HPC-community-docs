@@ -59,18 +59,20 @@ jobs:
           echo '${{ github.repository}}'
           echo '${{ github.ref }}'
       - name: Download built HTML documentation artifact
-        id: download-built-html-docs
+        id: download
         uses: actions/download-artifact@v3
         with:
           name: built-html-docs
-          path: built-html-docs
+          path: _built-html-docs
+      - name: Create .nojekyll
+        run: touch ${{ steps.download.outputs.download-path }}/.nojekyll
       - name: Display contents of HTML documentation directory
-        run: ls -R ${{ steps.download-built-html-docs.outputs.download-path }}
+        run: ls -R ${{ steps.download.outputs.download-path }}
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
           branch: gh-pages
-          folder: built-html-docs
+          folder: ${{ steps.download.outputs.download-path }}
           # TODO Limit access of workflow/job through GITHUB_TOKEN to only 
           # necessary permissions
           token: ${{ secrets.GITHUB_TOKEN }}
