@@ -37,4 +37,18 @@ jobs:
         with:
           name: built-html-docs
           path: build/html/
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Download built HTML documentation artifact
+        id: download-built-html-docs
+        uses: actions/download-artifact@v3
+        with:
+          name: built-html-docs
+          path: built-html-docs
+      - name: Display contents of HTML documentation directory
+        run: ls -R ${{ steps.download-built-html-docs.outputs.download-path }}
