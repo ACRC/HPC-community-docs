@@ -10,8 +10,10 @@ jobs:
       CONDA_RUN: conda run --name HPC-community-docs-env 
     steps:
       - uses: actions/checkout@v3
-      - name: Print current directory
-        run: pwd
+      - name: Print current directory and github.workspace
+        run: |
+          pwd
+          echo ${{ github.workspace }}
       - name: Print user information
         run: whoami
       - name: Is Conda installed?
