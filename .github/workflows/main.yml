@@ -39,14 +39,18 @@ jobs:
           path: build/html/
   deploy:
     needs: build
-    if: >
-      github.repository == 'ACRC/HPC-community-docs' &&
-      github.ref == 'refs/heads/main'
+    # if: >
+    #   github.repository == 'ACRC/HPC-community-docs' &&
+    #   github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
     steps:
+      - name: Get github.repository and github.ref values
+        run: |
+          echo '${{ github.repository}}'
+          echo '${{ github.ref }}'
       - name: Download built HTML documentation artifact
         id: download-built-html-docs
         uses: actions/download-artifact@v3
