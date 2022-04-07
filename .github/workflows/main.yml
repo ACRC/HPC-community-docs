@@ -70,7 +70,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
           branch: gh-pages
-          folder: build/html/
+          folder: built-html-docs
           # TODO Limit access of workflow/job through GITHUB_TOKEN to only 
           # necessary permissions
           token: ${{ secrets.GITHUB_TOKEN }}
