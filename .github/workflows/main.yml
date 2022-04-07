@@ -39,9 +39,13 @@ jobs:
           path: build/html/
   deploy:
     needs: build
+    # TODO Change to restrict to ACRC:main for actions used in production
     # if: >
     #   github.repository == 'ACRC/HPC-community-docs' &&
     #   github.ref == 'refs/heads/main'
+    if: >
+      github.repository == 'jcwomack/HPC-community-docs' &&
+      github.ref == 'refs/heads/prototype/gh-actions'
     runs-on: ubuntu-latest
     defaults:
       run:
