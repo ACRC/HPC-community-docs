@@ -28,6 +28,9 @@ jobs:
         run: ${{ env.CONDA_RUN }} sphinx-build --version
       - name: Build the documentation
         run: ${{ env.CONDA_RUN }} sphinx-build -M html source build
+      # Uploaded artifacts are dynamically zipped when accessed through GitHub UI
+      # so we do not need to zip them beforehand (this would "double zip" the result)
+      # https://github.com/marketplace/actions/upload-a-build-artifact#zipped-artifact-downloads
       - name: Upload built HTML documentation artifact
         if: success()
         uses: actions/upload-artifact@v3
