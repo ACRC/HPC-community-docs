@@ -36,7 +36,7 @@ jobs:
   deploy:
     needs: [build]
     permissions:
-      contents: write
+      contents: read
     # TODO Deployment should only happen on main branch of official repository
     # if: >
     #   github.repository == 'ACRC/HPC-community-docs' &&
