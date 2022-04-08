@@ -7,27 +7,21 @@ jobs:
       run:
         shell: bash
     env:
+      # Use conda run to run commands in an environment. Each job step runs in a
+      # separate process, so cannot use conda activate to work in an environment
       CONDA_RUN: conda run --name HPC-community-docs-env 
     steps:
-      - uses: actions/checkout@v3
-      - name: Print current directory and github.workspace
-        run: |
-          pwd
-          echo ${{ github.workspace }}
-      - name: Print user information
-        run: whoami
-      - name: Is Conda installed?
-        run: conda info
-      # Miniconda is pre-installed in Ubuntu 20.04 runner
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Miniconda is pre-installed in GitHub-hosted Ubuntu 20.04 runner
       # https://github.com/actions/virtual-environments/blob/ubuntu20/20220330.0/images/linux/Ubuntu2004-Readme.md
       - name: Create Conda environment
         run: conda env create --file environment.yml
-      # Use conda run to run commands in an environment. Each job step runs in a
-      # separate process, so cannot use conda activate to work in an environment
-      - name: Check sphinx-build
-        run: ${{ env.CONDA_RUN }} sphinx-build --version
-      - name: Build the documentation
+
+      - name: Build documentation
         run: ${{ env.CONDA_RUN }} sphinx-build -M html source build
+
       # Uploaded artifacts are dynamically zipped when accessed through GitHub UI
       # so we do not need to zip them beforehand (this would "double zip" the result)
       # https://github.com/marketplace/actions/upload-a-build-artifact#zipped-artifact-downloads
@@ -37,39 +31,39 @@ jobs:
         with:
           name: built-html-docs
           path: build/html/
+
   deploy:
     needs: build
-    # TODO Change to restrict to ACRC:main for actions used in production
+    # TODO Deployment should only happen on main branch of official repository
     # if: >
     #   github.repository == 'ACRC/HPC-community-docs' &&
     #   github.ref == 'refs/heads/main'
-    if: >
-      github.repository == 'jcwomack/HPC-community-docs' &&
-      github.ref == 'refs/heads/prototype/gh-actions'
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
     steps:
-      # actions/checkout required by JamesIves/github-pages-depoy-action
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Get github.repository and github.ref values
-        run: |
-          echo '${{ github.repository}}'
-          echo '${{ github.ref }}'
+
       - name: Download built HTML documentation artifact
         id: download
         uses: actions/download-artifact@v3
         with:
           name: built-html-docs
           path: _built-html-docs
+
+      # A .nojekyll file is required in the root of the publishing source to
+      # prevent GitHub adding an automatic Jekyll build step to deployment
+      # https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#static-site-generators
       - name: Create .nojekyll
         run: touch ${{ steps.download.outputs.download-path }}/.nojekyll
-      - name: Copy humans.txt for this commit
+
+      # Copy humans.txt directly into the directory to deploy, since this is
+      # linked to as an external URL in the documentation  
+      - name: Copy current humans.txt
         run: cp -v -n humans.txt ${{ steps.download.outputs.download-path }}/
-      - name: Display contents of HTML documentation directory
-        run: ls -R ${{ steps.download.outputs.download-path }}
+      
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
