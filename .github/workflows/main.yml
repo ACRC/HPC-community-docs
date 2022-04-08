@@ -37,10 +37,10 @@ jobs:
     needs: [build]
     permissions:
       contents: write
-    # TODO Deployment should only happen on main branch of official repository
-    # if: >
-    #   github.repository == 'ACRC/HPC-community-docs' &&
-    #   github.ref == 'refs/heads/main'
+    # Deployment should only happen on main branch of official repository
+    if: >
+      github.repository == 'ACRC/HPC-community-docs' &&
+      github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     defaults:
       run:
