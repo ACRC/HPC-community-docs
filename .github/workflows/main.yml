@@ -1,8 +1,9 @@
-name: actions-testing
+name: Build and deploy HTML documentation
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: {}
     defaults:
       run:
         shell: bash
@@ -33,7 +34,8 @@ jobs:
           path: build/html/
 
   deploy:
-    needs: build
+    needs: [build]
+    permissions: {}
     # TODO Deployment should only happen on main branch of official repository
     # if: >
     #   github.repository == 'ACRC/HPC-community-docs' &&
