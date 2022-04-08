@@ -56,8 +56,7 @@ See [LICENSE.md][acrc-hpc-community-docs-license] in the [GitHub repository][acr
 [acrc-hpc-community-docs-issues]: https://github.com/ACRC/HPC-community-docs/issues "ACRC HPC community documentation GitHub Issues"
 [acrc-hpc-community-docs-prs]: https://github.com/ACRC/HPC-community-docs/pulls "ACRC HPC community documentation GitHub Pull requests"
 [acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
-% TODO Update humans.txt to production repository URL (when deploying to production repository)
-[humanstxt-file]: https://jcwomack.github.io/HPC-community-docs/humans.txt "humans.txt"
+[humanstxt-file]: https://acrc.github.io/HPC-community-docs/humans.txt "humans.txt"
 [humanstxt-website]: https://humanstxt.org "Humans TXT website"
 [cc-by-sa-4]: https://creativecommons.org/licenses/by-sa/4.0/ "CC BY-SA 4.0 license"
 [acrc-hpc-community-docs-license]: https://github.com/ACRC/HPC-community-docs/blob/main/LICENSE.md "ACRC HPC community documentation LICENSE.md"
