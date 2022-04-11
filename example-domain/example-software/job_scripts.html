@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job scripts &mdash; ACRC HPC community documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Example Software" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example domain</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Example Software</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Job scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#serial-example-software-job">Serial Example Software job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel-example-software-job">Parallel Example Software job</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ACRC HPC community documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Example domain</a> &raquo;</li>
+          <li><a href="index.html">Example Software</a> &raquo;</li>
+      <li>Job scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/example-domain/example-software/job_scripts.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="job-scripts">
+<h1>Job scripts<a class="headerlink" href="#job-scripts" title="Permalink to this headline"></a></h1>
+<section id="serial-example-software-job">
+<h2>Serial Example Software job<a class="headerlink" href="#serial-example-software-job" title="Permalink to this headline"></a></h2>
+<p>Small scale Example Software jobs can be run in serial, using a single core.
+Here is an example where Example Software processes the input file <code class="docutils literal notranslate"><span class="pre">example.in</span></code>, producing output <code class="docutils literal notranslate"><span class="pre">example.out</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">#SBATCH --job-name=example_software</span>
+<span class="linenos"> 4</span><span class="c1">#SBATCH --partition=test</span>
+<span class="linenos"> 5</span><span class="c1">#SBATCH --nodes=1</span>
+<span class="linenos"> 6</span><span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="linenos"> 7</span><span class="c1">#SBATCH --time=1:00:00</span>
+<span class="linenos"> 8</span><span class="c1">#SBATCH --mem=1G</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>module load apps/example-software/1.0.0
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="nv">INPUT_FILE</span><span class="o">=</span>example.in
+<span class="linenos">13</span><span class="nv">OUTPUT_FILE</span><span class="o">=</span>example.out
+<span class="linenos">14</span>
+<span class="linenos">15</span>example-software <span class="si">${</span><span class="nv">INPUT_FILE</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">OUTPUT_FILE</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>You may need to adjust the walltime (<code class="docutils literal notranslate"><span class="pre">--time</span></code>) and memory (<code class="docutils literal notranslate"><span class="pre">--mem</span></code>) requested, depending on how demanding your simulation is.</p>
+<section id="array-jobs">
+<h3>Array jobs<a class="headerlink" href="#array-jobs" title="Permalink to this headline"></a></h3>
+<p>A common use case for Example Software on HPC is to run many small, single-core, jobs, each with different input parameters.
+The results of the jobs can then be collected and statistically analysed.
+This can be achieved using an <a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/array.html#array-jobs">array job</a>, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">#SBATCH --job-name=example_software</span>
+<span class="linenos"> 4</span><span class="c1">#SBATCH --partition=test</span>
+<span class="linenos"> 5</span><span class="c1">#SBATCH --nodes=1</span>
+<span class="linenos"> 6</span><span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="linenos"> 7</span><span class="c1">#SBATCH --time=1:00:00</span>
+<span class="linenos"> 8</span><span class="c1">#SBATCH --mem=1G</span>
+<span class="linenos"> 9</span><span class="c1">#SBATCH --array=0-99</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>module load apps/example-software/1.0.0
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="nv">INPUT_FILE</span><span class="o">=</span><span class="s2">&quot;example_</span><span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span><span class="s2">.in&quot;</span>
+<span class="linenos">14</span><span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">&quot;example_</span><span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span><span class="s2">.out&quot;</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>example-software <span class="si">${</span><span class="nv">INPUT_FILE</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">OUTPUT_FILE</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>In this example, an array of jobs numbered 0 to 99 is created, each running the job script with a different array index (<code class="docutils literal notranslate"><span class="pre">SLURM_ARRAY_TASK_ID</span></code>).
+The array index is used to select a input file (<code class="docutils literal notranslate"><span class="pre">example_0.in</span></code> to <code class="docutils literal notranslate"><span class="pre">example_99.in</span></code>) and to name the corresponding output file (<code class="docutils literal notranslate"><span class="pre">example_0.out</span></code> to <code class="docutils literal notranslate"><span class="pre">example_99.out</span></code>).</p>
+</section>
+</section>
+<section id="parallel-example-software-job">
+<h2>Parallel Example Software job<a class="headerlink" href="#parallel-example-software-job" title="Permalink to this headline"></a></h2>
+<p>For larger scale jobs, per-job parallelism may be useful. Example Software can make use of threaded parallelism via OpenMP on a single node. In the following example, the <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> environment variable is set to the number of CPUs per task requested (in this case 28, as this is how many cores there are per BlueCrystal 4 compute node). The number of threads is also set using the Example Software command line option <code class="docutils literal notranslate"><span class="pre">-n</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">#SBATCH --job-name=example_software_omp</span>
+<span class="linenos"> 4</span><span class="c1">#SBATCH --partition=test</span>
+<span class="linenos"> 5</span><span class="c1">#SBATCH --nodes=1</span>
+<span class="linenos"> 6</span><span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="linenos"> 7</span><span class="c1">#SBATCH --cpus-per-task=28</span>
+<span class="linenos"> 8</span><span class="c1">#SBATCH --time=1:00:00</span>
+<span class="linenos"> 9</span><span class="c1">#SBATCH --mem=1G</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>module load apps/example-software/1.0.0
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="nv">INPUT_FILE</span><span class="o">=</span>example.in
+<span class="linenos">16</span><span class="nv">OUTPUT_FILE</span><span class="o">=</span>example.out
+<span class="linenos">17</span>
+<span class="linenos">18</span>example-software -n <span class="si">${</span><span class="nv">OMP_NUM_THREADS</span><span class="si">}</span> <span class="si">${</span><span class="nv">INPUT_FILE</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">OUTPUT_FILE</span><span class="si">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Example Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, University of Bristol.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
