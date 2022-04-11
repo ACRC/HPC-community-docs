@@ -1,5 +1,11 @@
 name: Build and deploy HTML documentation
-on: [push]
+on: 
+  push:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 permissions: {}
 jobs:
   build:
