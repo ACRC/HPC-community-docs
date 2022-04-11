@@ -7,6 +7,7 @@ title: "Example Software"
 hidden: true
 ---
 job_scripts.md
+test.md
 ```
 
 Example Software is available as a module on Blue Crystal and Blue Pebble and can be loaded into the shell environment using
