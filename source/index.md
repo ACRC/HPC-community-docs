@@ -8,7 +8,6 @@ title: "ACRC HPC community documentation"
 %
 % Converted from reStructuredText to MyST Markdown
 
-
 ## Introduction
 Welcome to the University of Bristol [Advanced Computing Research Centre (ACRC)][acrc-website] HPC community documentation project!
 Here you will find documentation contributed by HPC users at the University of Bristol, providing domain-specific information on how to effectively use HPC facilities managed by the ACRC at the University of Bristol.
@@ -57,8 +56,7 @@ See [LICENSE.md][acrc-hpc-community-docs-license] in the [GitHub repository][acr
 [acrc-hpc-community-docs-issues]: https://github.com/ACRC/HPC-community-docs/issues "ACRC HPC community documentation GitHub Issues"
 [acrc-hpc-community-docs-prs]: https://github.com/ACRC/HPC-community-docs/pulls "ACRC HPC community documentation GitHub Pull requests"
 [acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
-% TODO: Replace with link to file in GitHub Pages
-[humanstxt-file]: https://github.com/ACRC/HPC-community-docs/blob/main/humans.txt "humans.txt"
+[humanstxt-file]: https://acrc.github.io/HPC-community-docs/humans.txt "humans.txt"
 [humanstxt-website]: https://humanstxt.org "Humans TXT website"
 [cc-by-sa-4]: https://creativecommons.org/licenses/by-sa/4.0/ "CC BY-SA 4.0 license"
 [acrc-hpc-community-docs-license]: https://github.com/ACRC/HPC-community-docs/blob/main/LICENSE.md "ACRC HPC community documentation LICENSE.md"

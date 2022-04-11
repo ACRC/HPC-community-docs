@@ -1,0 +1,75 @@
+name: Build and deploy HTML documentation
+on: [push]
+permissions: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    env:
+      # Use conda run to run commands in an environment. Each job step runs in a
+      # separate process, so cannot use conda activate to work in an environment
+      CONDA_RUN: conda run --name HPC-community-docs-env 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Miniconda is pre-installed in GitHub-hosted Ubuntu 20.04 runner
+      # https://github.com/actions/virtual-environments/blob/ubuntu20/20220330.0/images/linux/Ubuntu2004-Readme.md
+      - name: Create Conda environment
+        run: conda env create --file environment.yml
+
+      - name: Build documentation
+        run: ${{ env.CONDA_RUN }} sphinx-build -M html source build
+
+      # Uploaded artifacts are dynamically zipped when accessed through GitHub UI
+      # so we do not need to zip them beforehand (this would "double zip" the result)
+      # https://github.com/marketplace/actions/upload-a-build-artifact#zipped-artifact-downloads
+      - name: Upload built HTML documentation artifact
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: built-html-docs
+          path: build/html/
+
+  deploy:
+    needs: [build]
+    permissions:
+      contents: write
+    # Deployment should only happen on main branch of official repository
+    if: >
+      github.repository == 'ACRC/HPC-community-docs' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download built HTML documentation artifact
+        id: download
+        uses: actions/download-artifact@v3
+        with:
+          name: built-html-docs
+          path: _built-html-docs
+
+      # A .nojekyll file is required in the root of the publishing source to
+      # prevent GitHub adding an automatic Jekyll build step to deployment
+      # https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#static-site-generators
+      - name: Create .nojekyll
+        run: touch ${{ steps.download.outputs.download-path }}/.nojekyll
+
+      # Copy humans.txt directly into the directory to deploy, since this is
+      # linked to as an external URL in the documentation  
+      - name: Copy current humans.txt
+        run: cp -v -n humans.txt ${{ steps.download.outputs.download-path }}/
+      
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages
+          folder: ${{ steps.download.outputs.download-path }}
+          token: ${{ secrets.GITHUB_TOKEN }}
