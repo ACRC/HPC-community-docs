@@ -1,0 +1,10 @@
+# Custom static files can be added to _static, to be copied to the _static 
+# directory in the HTML output (possibly overwriting the theme's default files).
+#
+# Paths for static files are set by the value of html_extra_path in the build 
+# configuration file (conf.py). Dotfiles (e.g. .gitignore) are never copied.
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_static_path
+#
+# This directory must be present in the source tree, even if empty, to prevent 
+# sphinx-build emitting a warning (which will result in a failed build when the
+# -W flag is used with sphinx-build).
