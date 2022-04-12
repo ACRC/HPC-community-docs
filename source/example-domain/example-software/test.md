@@ -9,3 +9,7 @@ Adding a page to the sources to test GitHub Actions for build and deploy of HTML
 Another change, to trigger actions.
 
 And another.
+
+```{invalid}
+This will cause an error when sphinx-build is run
+```
