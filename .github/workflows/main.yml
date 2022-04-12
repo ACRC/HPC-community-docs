@@ -9,6 +9,7 @@ on:
 permissions: {}
 jobs:
   build:
+    name: Build HTML documentation
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -40,6 +41,7 @@ jobs:
           path: build/html/
 
   deploy:
+    name: Deploy HTML documentation to publishing source
     needs: [build]
     permissions:
       contents: write
