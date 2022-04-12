@@ -37,11 +37,11 @@ jobs:
       # so we do not need to zip them beforehand (this would "double zip" the result)
       # https://github.com/marketplace/actions/upload-a-build-artifact#zipped-artifact-downloads
       - name: Upload built HTML documentation artifact
-        if: success()
         uses: actions/upload-artifact@v3
         with:
           name: built-html-docs
           path: build/html/
+          if-no-files-found: error
 
   deploy:
     name: Deploy HTML documentation to publishing source
