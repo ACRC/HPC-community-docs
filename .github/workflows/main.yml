@@ -31,7 +31,8 @@ jobs:
       # but allow the build to run to completion. Builds with warnings exit with
       # exit status 1.
       - name: Build documentation
-        run: ${{ env.CONDA_RUN }} sphinx-build -M html source build -W --keep-going
+      # run: ${{ env.CONDA_RUN }} sphinx-build -M html source build -W --keep-going
+        run: echo "Hello world!"
 
       # Uploaded artifacts are dynamically zipped when accessed through GitHub UI
       # so we do not need to zip them beforehand (this would "double zip" the result)
