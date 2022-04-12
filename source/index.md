@@ -1,6 +1,5 @@
 ---
 title: "ACRC HPC community documentation"
-Invalid
 ---
 % ACRC HPC community documentation documentation master file, created by
 % sphinx-quickstart on Mon Mar 21 14:51:22 2022.
