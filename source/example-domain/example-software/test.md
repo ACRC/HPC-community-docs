@@ -7,3 +7,5 @@ title: "Test page"
 Adding a page to the sources to test GitHub Actions for build and deploy of HTML documentation to GitHub Pages.
 
 Another change, to trigger actions.
+
+And another.
