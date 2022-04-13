@@ -79,9 +79,9 @@ jobs:
       - name: Copy current humans.txt
         run: cp -v -n humans.txt ${{ steps.download.outputs.download-path }}/
       
-      - name: Deploy to gh-pages branch
+      - name: Deploy to publishing-source branch
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
-          branch: gh-pages
+          branch: publishing-source
           folder: ${{ steps.download.outputs.download-path }}
           token: ${{ secrets.GITHUB_TOKEN }}
