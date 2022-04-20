@@ -1,12 +1,6 @@
 ---
 title: "ACRC HPC community documentation"
 ---
-% ACRC HPC community documentation documentation master file, created by
-% sphinx-quickstart on Mon Mar 21 14:51:22 2022.
-% You can adapt this file completely to your liking, but it should at least
-% contain the root `toctree` directive.
-%
-% Converted from reStructuredText to MyST Markdown
 
 ## Introduction
 Welcome to the University of Bristol [Advanced Computing Research Centre (ACRC)][acrc-website] HPC community documentation project!
