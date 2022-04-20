@@ -6,10 +6,10 @@ The HPC community documentation project provides a space for HPC users at the Un
 The HPC community documentation is complementary to the [ACRC HPC Documentation and User Guides][acrc-hpc-user-docs]. 
 It provides a space for user-contributed specialist documentation relating to particular research areas, for example
 
-* Example job submission scripts for the package
-* Running the software efficiently on the HPC facilities 
-* Compiling/building the software for the HPC facilities
-* Workflows for collecting and analysing of software outputs 
+* Example job submission scripts for specialist software packages
+* Running specialist software efficiently on the HPC facilities 
+* Compiling/building specialist software for the HPC facilities
+* Workflows for collecting and analysing of outputs from specialist software
 * Workarounds or solutions for commonly encountered problems
 
 ## Accessing the documentation

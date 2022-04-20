@@ -1,12 +1,6 @@
 ---
 title: "ACRC HPC community documentation"
 ---
-% ACRC HPC community documentation documentation master file, created by
-% sphinx-quickstart on Mon Mar 21 14:51:22 2022.
-% You can adapt this file completely to your liking, but it should at least
-% contain the root `toctree` directive.
-%
-% Converted from reStructuredText to MyST Markdown
 
 ## Introduction
 Welcome to the University of Bristol [Advanced Computing Research Centre (ACRC)][acrc-website] HPC community documentation project!
@@ -16,7 +10,7 @@ For general information and guides related to accessing and using ACRC HPC facil
 
 The HPC community documentation is complementary to the [ACRC HPC Documentation and User Guides][acrc-hpc-user-docs]. 
 It provides a space for user-contributed specialist documentation relating to particular research areas. 
-For example, documentation for a research software packages used in particular domain might include:
+For example, documentation for a research software package used in particular domain might include:
 
 * Example job submission scripts for the package
 * Running the software efficiently on the HPC facilities 
