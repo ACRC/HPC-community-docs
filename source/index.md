@@ -16,7 +16,7 @@ For general information and guides related to accessing and using ACRC HPC facil
 
 The HPC community documentation is complementary to the [ACRC HPC Documentation and User Guides][acrc-hpc-user-docs]. 
 It provides a space for user-contributed specialist documentation relating to particular research areas. 
-For example, documentation for a research software packages used in particular domain might include:
+For example, documentation for a research software package used in particular domain might include:
 
 * Example job submission scripts for the package
 * Running the software efficiently on the HPC facilities 
