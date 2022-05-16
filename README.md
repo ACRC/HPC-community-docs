@@ -13,7 +13,8 @@ It provides a space for user-contributed specialist documentation relating to pa
 * Workarounds or solutions for commonly encountered problems
 
 ## Accessing the documentation
-To view the most recent version of the HPC community documentation, please go to **<https://acrc.github.io/HPC-community-docs/>**.
+To view the most recent version of the HPC community documentation, please go to:  
+**<https://acrc.github.io/HPC-community-docs/>**
 
 The HPC community documentation project is hosted on [GitHub Pages](https://pages.github.com/) and is automatically updated following changes to this repository using [GitHub Actions](https://docs.github.com/en/actions).
 
