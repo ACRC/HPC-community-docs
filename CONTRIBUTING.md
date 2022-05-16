@@ -16,6 +16,7 @@ Thank you for your interest in contributing! This document collects useful infor
 
 ## Key links
 
+* [Documentation website][acrc-hpc-community-docs-website]: HPC community documentation deployed as HTML website
 * [README.md](README.md): general information about the repository and documentation project
 * [LICENSE.md](LICENSE.md): licenses for content in the repository
 * [Issues][acrc-hpc-community-docs-issues]: the place to raise and discuss bugs, issues, enhancements
@@ -207,6 +208,7 @@ If you need assistance with preparing a contribution to the HPC community docume
 
 <!-- REFERENCES -->
 [acrc-website]: https://www.bristol.ac.uk/acrc/ "Advanced Computing Research Centre bristol.ac.uk website"
+[acrc-hpc-community-docs-website]: https://acrc.github.io/HPC-community-docs/ "ACRC HPC community documentation website"
 [acrc-hpc-community-docs-issues]: https://github.com/ACRC/HPC-community-docs/issues "ACRC HPC community documentation GitHub Issues"
 [myst-parser]: https://myst-parser.readthedocs.io/en/latest/ "MyST - Markedly Structured Text"
 [sphinx-rest-primer]: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html "Sphinx reStructuredText Primer"
