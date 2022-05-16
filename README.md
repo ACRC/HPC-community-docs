@@ -13,8 +13,9 @@ It provides a space for user-contributed specialist documentation relating to pa
 * Workarounds or solutions for commonly encountered problems
 
 ## Accessing the documentation
-> **TODO**  
-> Information about accessing documentation website, once automated deployment is set up
+To view the most recent version of the HPC community documentation, please go to **<https://acrc.github.io/HPC-community-docs/>**.
+
+The HPC community documentation project is hosted on [GitHub Pages](https://pages.github.com/) and is automatically updated following changes to this repository using [GitHub Actions](https://docs.github.com/en/actions).
 
 ## Contributing to the documentation
 We are very happy to receive contributions from HPC users at the University of Bristol. 
