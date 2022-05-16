@@ -12,6 +12,7 @@ Thank you for your interest in contributing! This document collects useful infor
 * [Building the documentation](#building-the-documentation)
 * [Modifying and adding to the documentation](#modifying-and-adding-to-the-documentation)
 * [Contributing changes to the repository](#contributing-changes-to-the-repository)
+* [Deployment of the documentation](#deployment-of-the-documentation)
 * [Asking for help](#asking-for-help)
 
 ## Key links
@@ -200,6 +201,10 @@ Additional contributions can be made from the same fork, by creating a new featu
 To keep your fork and feature branches up-to-date, it is recommended to regularly [sync the fork][github-docs-sync-fork] with the upstream (official) repository.
 Keeping the `main` branch in your fork synchronised with the `main` branch in the upstream repository ensures contributions from others to the upstream repository are incorporated into the fork.
 Merging changes from upstream `main` into active feature branches on your fork helps avoid complex merge conflicts arising when creating a pull request.
+
+## Deployment of the documentation
+
+> **TODO**: Information about GitHub Actions workflows: when they are run, what they do, how to use actions on a fork, and how to access built docs as a build artifact.
 
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
