@@ -32,6 +32,7 @@ maxdepth: 2
 caption: "Contents:"
 ---
 example-domain/index
+engineering/index
 ```
 
 # Credits and licenses
