@@ -32,6 +32,7 @@ author = 'University of Bristol ACRC and researchers'
 extensions = [
     'myst_parser',
     'sphinx_rtd_theme',
+    'sphinx_design'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
