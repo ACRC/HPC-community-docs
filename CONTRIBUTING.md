@@ -204,13 +204,23 @@ Merging changes from upstream `main` into active feature branches on your fork h
 
 ## Deployment of the documentation
 
-<!-- **TODO**: Information about GitHub Actions workflows: when they are run, what they do, how to use actions on a fork, and how to access built docs as a build artifact. -->
 The HPC community documentation project uses [GitHub Actions][github-docs-actions] to automate building of the documentation into a HTML website and publishing (deployment) of the website.
-The website is published using [GitHub Pages][github-pages].
+The website is published using [GitHub Pages][github-pages] at <https://acrc.github.io/HPC-community-docs/>.
 
 The GitHub Actions [workflow][github-docs-actions-workflows] for building and deploying the documentation is defined in [.github/workflows/main.yml](.github/workflows/main.yml).
-The workflow is activated whenever commits are pushed to the repository (to any branch) and when a pull request is opened, updated (with new commits), or reopened.
-The workflow will always attempt to build the documentation when activated, but will only deploy the built website for commits to the `main` branch on the [official repository][acrc-hpc-community-docs-repo].
+The workflow is run on a [GitHub-hosted virtual machine ("runner")][github-docs-hosted-runners] whenever commits are pushed to the repository (to any branch) and when a pull request is opened, updated (with new commits), or reopened.
+When run, the workflow will always attempt to build the documentation, but will only deploy the built website to GitHub Pages for commits to the `main` branch on the [official repository][acrc-hpc-community-docs-repo].
+
+For a commit pushed to a branch, the workflow will run using the documentation source files present in the pushed commit.
+For a pull request, the workflow will run using the source files as they would be if the pull request was merged ([on the `refs/pull/prNumber/merge` branch][github-docs-events-trigger-push]).
+
+Information about current and past workflow runs on the official repository can be viewed in the [Actions tab on the repository GitHub page][acrc-hpc-community-docs-actions].
+
+### Actions on forks
+<!-- TODO: Behaviour of Actions on forks, how to activate -->
+
+### Downloading documentation build artifact
+<!-- TODO: How to download a zip file containing the built docs (e.g. for actions run on forks or PRs) -->
 
 
 ## Asking for help
@@ -260,4 +270,7 @@ If you need assistance with preparing a contribution to the HPC community docume
 [github-docs-actions]: https://docs.github.com/en/actions "GitHub Actions"
 [github-pages]: https://pages.github.com/ "GitHub Pages"
 [github-docs-actions-workflows]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows "Workflows"
-[acrc-hpc-community-docs-repo]: https://github.com/ACRC/HPC-community-docs/
+[acrc-hpc-community-docs-repo]: https://github.com/ACRC/HPC-community-docs/ "ACRC HPC community documentation repository"
+[github-docs-hosted-runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners "About GitHub-hosted runners"
+[github-docs-events-trigger-push]: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request "Events that trigger workflows: pull_request"
+[acrc-hpc-community-docs-actions]: https://github.com/ACRC/HPC-community-docs/actions "ACRC HPC community documentation GitHub Actions"
