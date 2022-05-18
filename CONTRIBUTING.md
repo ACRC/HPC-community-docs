@@ -204,7 +204,13 @@ Merging changes from upstream `main` into active feature branches on your fork h
 
 ## Deployment of the documentation
 
-> **TODO**: Information about GitHub Actions workflows: when they are run, what they do, how to use actions on a fork, and how to access built docs as a build artifact.
+<!-- **TODO**: Information about GitHub Actions workflows: when they are run, what they do, how to use actions on a fork, and how to access built docs as a build artifact. -->
+The HPC community documentation project uses [GitHub Actions][github-docs-actions] to automate building of the documentation into a HTML website and publishing (deployment) of the website.
+The website is published using [GitHub Pages][github-pages].
+
+The GitHub Actions [workflow][github-docs-actions-workflows] for building and deploying the documentation is defined in [.github/workflows/main.yml](.github/workflows/main.yml).
+The workflow is activated whenever commits are pushed to the repository (to any branch) and when a pull request is opened, updated (with new commits), or reopened.
+The workflow will always attempt to build the documentation when activated, but will only deploy the built website for commits to the `main` branch on the [official repository][acrc-hpc-community-docs-repo].
 
 
 ## Asking for help
@@ -251,3 +257,7 @@ If you need assistance with preparing a contribution to the HPC community docume
 [acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
 [uob-directory-jcwomack]: https://www.bris.ac.uk/contact/person/getDetails?personKey=kbwP3F8vd3QrkvAdDAYPnFXOILXiny "James C. Womack at University of Bristol"
 [github-jcwomack]: https://github.com/jcwomack "James C. Womack on GitHub"
+[github-docs-actions]: https://docs.github.com/en/actions "GitHub Actions"
+[github-pages]: https://pages.github.com/ "GitHub Pages"
+[github-docs-actions-workflows]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows "Workflows"
+[acrc-hpc-community-docs-repo]: https://github.com/ACRC/HPC-community-docs/
