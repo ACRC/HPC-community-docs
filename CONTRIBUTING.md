@@ -185,7 +185,7 @@ Before making your contribution, please ensure
 
 ### Workflow
 The HPC community documentation project uses the [fork and pull model][fork-and-pull-model] for collaborative development (also known as the [forking workflow][forking-workflow]).
-To develop and contribute changes to the documentation, 
+To develop and contribute changes to the documentation:
 
 * Create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo] on GitHub
 * Clone the forked repository onto your local machine
@@ -205,6 +205,7 @@ Merging changes from upstream `main` into active feature branches on your fork h
 ## Deployment of the documentation
 
 > **TODO**: Information about GitHub Actions workflows: when they are run, what they do, how to use actions on a fork, and how to access built docs as a build artifact.
+
 
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
