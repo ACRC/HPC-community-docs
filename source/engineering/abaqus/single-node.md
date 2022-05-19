@@ -30,7 +30,7 @@ module load apps/abaqus/2018
 unset SLURM_GTIDS 
 
 # Launch Abaqus 
-abaqus job=<job-name> cpus=${SLURM_NTASKS} user=<usub-file> mp_mode=threads double=both interactive
+abaqus job=<job-name> cpus=${SLURM_CPUS_PER_TASK} user=<usub-file> mp_mode=threads double=both interactive
 ```
 
 ```{note}
