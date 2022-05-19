@@ -234,18 +234,18 @@ This ensures avoids automatic activation of GitHub Pages when the official repos
 
 We ask you not to do this to avoid creating duplicates in search engine results and confusing readers.
 If a contributor's fork publishes documentation to <https://username.github.io/HPC-community-docs/>, then this will result in multiple versions of the HPC community documentation being publicly accessible.
-For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo] at .
+For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo].
 
 To ensure the canonical version of the HPC community documentation at <https://acrc.github.io/HPC-community-docs/> is easily findable by users, please do not publish documentation you are working on in a fork to the web.
 If you need view the result of a build from an Actions workflow run, you can do this locally by [downloading the a build artifact](#downloading-documentation-build-artifact) for the workflow run.
 ### Downloading documentation build artifact
-<!-- TODO: How to download a zip file containing the built docs (e.g. for actions run on forks or PRs) -->
 If you want to check the result of the documentation build job in the Actions workflow, you can download a zip archive containing the built HTML documentation for a given workflow run.
 This can be downloaded by selecting a workflow run on the repository Actions tab, then selecting `built-html-docs` under "Artifacts".
 The built documentation can be viewed locally by decompressing the archive and opening `index.html` in a web browser, as [described above](#3-view-the-result) (the archive contains the contents of the `build/html/` directory created during the [build process](#running-the-build-process)).
 
 The build artifact containing the built documentation can be downloaded for workflows run on pull requests.
-To access the workflow run page where the artifact can be downloaded, select "Details" next to the "Build HTML documentation" item in the list of checks.
+To access the workflow run page where the artifact can be downloaded from a pull request page, select "Details" next to the "Build HTML documentation" item in the list of checks.
+
 Workflows on pull requests are run in the context of the base repository for the pull request (i.e. the repository into which the pull request would merge changes) and are also visible under the base repository's Actions tab.
 The `built-html-docs` artifact for a workflow running on a pull request that requests merging changes into the `main` branch of the [official repository][acrc-hpc-community-docs-repo] contains the built documentation as would be published on the web, if the pull request was merged.
 
