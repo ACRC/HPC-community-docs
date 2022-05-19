@@ -218,6 +218,26 @@ Information about current and past workflow runs on the official repository can 
 
 ### Actions on forks
 <!-- TODO: Behaviour of Actions on forks, how to activate -->
+When you create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo], GitHub Actions will initially be disabled on the fork.
+The fork's Actions tab on GitHub will display a message indicating that workflows are not being run on the forked repository and a button that enables workflows.
+
+Once Actions are enabled on a fork of the HPC community docs repository, the workflow will run in the context of the fork whenever commits are pushed to a branch on that fork.
+
+The [workflow](.github/workflows/main.yml) will build the documentation, but will not deploy the built website to GitHub Pages, even if commits are pushed to the `main` branch of the fork.
+This is because the deployment job in the workflow will only run on the `main` branch of the official repository [official repository][acrc-hpc-community-docs-repo].
+
+GitHub Pages is also disabled when creating a fork (see the "Pages" section in the forked repository settings).
+The official repository uses the root of the `publishing-source` branch as the [publishing source for GitHub Pages][github-docs-pages-publishing-source] rather than the [default `gh-pages` branch][github-docs-pages-default-publishing-source].
+This ensures avoids automatic activation of GitHub Pages when the official repository is forked.
+
+### Do not publish to GitHub Pages on forks!
+**Please do not deploy the built documentation to GitHub Pages on your forked version of the official repository!** This can be done by modifying the [workflow file](.github/workflows/main.yml), or activating GitHub Pages and manually committing the built HTML documentation files to the publishing source branch on the fork. Please do not do this.
+
+We ask you not to do this to avoid creating duplicates in search engine results and confusing readers.
+If a user's fork publishes documentation to <https://username.github.io/HPC-community-docs/>, then this will result in multiple versions of the HPC community documentation being publicly accessible.
+For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo] at .
+
+To ensure the canonical version of the HPC community documentation at <https://acrc.github.io/HPC-community-docs/> is easily findable by users, please do not publish documentation you are working on in a fork to the web.
 
 ### Downloading documentation build artifact
 <!-- TODO: How to download a zip file containing the built docs (e.g. for actions run on forks or PRs) -->
@@ -270,7 +290,8 @@ If you need assistance with preparing a contribution to the HPC community docume
 [github-docs-actions]: https://docs.github.com/en/actions "GitHub Actions"
 [github-pages]: https://pages.github.com/ "GitHub Pages"
 [github-docs-actions-workflows]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows "Workflows"
-[acrc-hpc-community-docs-repo]: https://github.com/ACRC/HPC-community-docs/ "ACRC HPC community documentation repository"
 [github-docs-hosted-runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners "About GitHub-hosted runners"
 [github-docs-events-trigger-push]: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request "Events that trigger workflows: pull_request"
 [acrc-hpc-community-docs-actions]: https://github.com/ACRC/HPC-community-docs/actions "ACRC HPC community documentation GitHub Actions"
+[github-docs-pages-publishing-source]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site "Configuring a publishing source for your GitHub Pages site"
+[github-docs-pages-default-publishing-source]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites
