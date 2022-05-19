@@ -237,10 +237,14 @@ If a user's fork publishes documentation to <https://username.github.io/HPC-comm
 For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo] at .
 
 To ensure the canonical version of the HPC community documentation at <https://acrc.github.io/HPC-community-docs/> is easily findable by users, please do not publish documentation you are working on in a fork to the web.
-
+If you need view the result of a build from an Actions workflow run, you can do this locally by [downloading the a build artifact](#downloading-documentation-build-artifact) for the workflow run.
 ### Downloading documentation build artifact
 <!-- TODO: How to download a zip file containing the built docs (e.g. for actions run on forks or PRs) -->
+If you want to check the result of the documentation build job in the Actions workflow, you can download a zip archive containing the built HTML documentation for a given workflow run.
+This can be downloaded by selecting a workflow run on the repository Actions tab, then selecting `built-html-docs` under "Artifacts".
+The built documentation can be viewed locally by decompressing the archive and opening `index.html` in a web browser, as [described above](#3-view-the-result) (the archive contains the contents of the `build/html/` directory created during the [build process](#running-the-build-process)).
 
+<!-- Mention that this can also be done for workflows run on pull requests -->
 
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
