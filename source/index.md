@@ -2,6 +2,10 @@
 title: "ACRC HPC community documentation"
 ---
 
+```{admonition} Hello, world!
+This is a change to activate the Actions workflow on the `main` branch of a fork.
+```
+
 ## Introduction
 Welcome to the University of Bristol [Advanced Computing Research Centre (ACRC)][acrc-website] HPC community documentation project!
 Here you will find documentation contributed by HPC users at the University of Bristol, providing domain-specific information on how to effectively use HPC facilities managed by the ACRC at the University of Bristol.
