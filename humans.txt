@@ -4,3 +4,8 @@
   Contributions: Basic infrastructure, introductory text, repository and site management
   GitHub: https://github.com/jcwomack
   Site: https://jcwomack.com
+
+  Name: Laurence J. Kedward
+  Role: Research Software Engineer
+  Contributions: Abaqus user documentation
+  Github: https://github.com/LKedward
