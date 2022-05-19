@@ -233,7 +233,7 @@ This ensures avoids automatic activation of GitHub Pages when the official repos
 **Please do not deploy the built documentation to GitHub Pages on your forked version of the official repository!** This can be done by modifying the [workflow file](.github/workflows/main.yml), or activating GitHub Pages and manually committing the built HTML documentation files to the publishing source branch on the fork. Please do not do this.
 
 We ask you not to do this to avoid creating duplicates in search engine results and confusing readers.
-If a user's fork publishes documentation to <https://username.github.io/HPC-community-docs/>, then this will result in multiple versions of the HPC community documentation being publicly accessible.
+If a contributor's fork publishes documentation to <https://username.github.io/HPC-community-docs/>, then this will result in multiple versions of the HPC community documentation being publicly accessible.
 For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo] at .
 
 To ensure the canonical version of the HPC community documentation at <https://acrc.github.io/HPC-community-docs/> is easily findable by users, please do not publish documentation you are working on in a fork to the web.
