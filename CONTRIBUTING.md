@@ -217,7 +217,6 @@ For a pull request, the workflow will run using the source files as they would b
 Information about current and past workflow runs on the official repository can be viewed in the [Actions tab on the repository GitHub page][acrc-hpc-community-docs-actions].
 
 ### Actions on forks
-<!-- TODO: Behaviour of Actions on forks, how to activate -->
 When you create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo], GitHub Actions will initially be disabled on the fork.
 The fork's Actions tab on GitHub will display a message indicating that workflows are not being run on the forked repository and a button that enables workflows.
 
