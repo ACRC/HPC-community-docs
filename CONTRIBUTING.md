@@ -244,7 +244,10 @@ If you want to check the result of the documentation build job in the Actions wo
 This can be downloaded by selecting a workflow run on the repository Actions tab, then selecting `built-html-docs` under "Artifacts".
 The built documentation can be viewed locally by decompressing the archive and opening `index.html` in a web browser, as [described above](#3-view-the-result) (the archive contains the contents of the `build/html/` directory created during the [build process](#running-the-build-process)).
 
-<!-- Mention that this can also be done for workflows run on pull requests -->
+The build artifact containing the built documentation can be downloaded for workflows run on pull requests.
+To access the workflow run page where the artifact can be downloaded, select "Details" next to the "Build HTML documentation" item in the list of checks.
+Workflows on pull requests are run in the context of the base repository for the pull request (i.e. the repository into which the pull request would merge changes) and are also visible under the base repository's Actions tab.
+The `built-html-docs` artifact for a workflow running on a pull request that requests merging changes into the `main` branch of the [official repository][acrc-hpc-community-docs-repo] contains the built documentation as would be published on the web, if the pull request was merged.
 
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
