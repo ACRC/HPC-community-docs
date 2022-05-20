@@ -292,9 +292,6 @@ If you need assistance with preparing a contribution to the HPC community docume
 [github-docs-forks]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks "Working with forks"
 [github-docs-pr-from-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork "Creating a pull request from a fork"
 [github-docs-sync-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork" 
-[acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
-[uob-directory-jcwomack]: https://www.bris.ac.uk/contact/person/getDetails?personKey=kbwP3F8vd3QrkvAdDAYPnFXOILXiny "James C. Womack at University of Bristol"
-[github-jcwomack]: https://github.com/jcwomack "James C. Womack on GitHub"
 [github-docs-actions]: https://docs.github.com/en/actions "GitHub Actions"
 [github-pages]: https://pages.github.com/ "GitHub Pages"
 [github-docs-actions-workflows]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows "Workflows"
@@ -303,3 +300,6 @@ If you need assistance with preparing a contribution to the HPC community docume
 [acrc-hpc-community-docs-actions]: https://github.com/ACRC/HPC-community-docs/actions "ACRC HPC community documentation GitHub Actions"
 [github-docs-pages-publishing-source]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site "Configuring a publishing source for your GitHub Pages site"
 [github-docs-pages-default-publishing-source]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites
+[acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
+[uob-directory-jcwomack]: https://www.bris.ac.uk/contact/person/getDetails?personKey=kbwP3F8vd3QrkvAdDAYPnFXOILXiny "James C. Womack at University of Bristol"
+[github-jcwomack]: https://github.com/jcwomack "James C. Womack on GitHub"
