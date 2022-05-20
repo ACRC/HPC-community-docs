@@ -220,34 +220,36 @@ Information about current and past workflow runs on the official repository can 
 When you create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo], GitHub Actions will initially be disabled on the fork.
 The fork's Actions tab on GitHub will display a message indicating that workflows are not being run on the forked repository and a button that enables workflows.
 
-Once Actions are enabled on a fork of the HPC community docs repository, the workflow will run in the context of the fork whenever commits are pushed to a branch on that fork.
+Once Actions are enabled on a fork of the HPC-community-docs repository, the workflow will run in the context of the fork whenever commits are pushed to a branch on that fork.
 
 The [workflow](.github/workflows/main.yml) will build the documentation, but will not deploy the built website to GitHub Pages, even if commits are pushed to the `main` branch of the fork.
-This is because the deployment job in the workflow will only run on the `main` branch of the official repository [official repository][acrc-hpc-community-docs-repo].
+This is because the deployment job in the workflow will only run on the `main` branch of the [official repository][acrc-hpc-community-docs-repo].
 
 GitHub Pages is also disabled when creating a fork (see the "Pages" section in the forked repository settings).
 The official repository uses the root of the `publishing-source` branch as the [publishing source for GitHub Pages][github-docs-pages-publishing-source] rather than the [default `gh-pages` branch][github-docs-pages-default-publishing-source].
-This ensures avoids automatic activation of GitHub Pages when the official repository is forked.
+This avoids automatic activation of GitHub Pages when the official repository is forked.
 
 ### Do not publish to GitHub Pages on forks!
-**Please do not deploy the built documentation to GitHub Pages on your forked version of the official repository!** This can be done by modifying the [workflow file](.github/workflows/main.yml), or activating GitHub Pages and manually committing the built HTML documentation files to the publishing source branch on the fork. Please do not do this.
+**Please do not deploy the built documentation to GitHub Pages on your forked version of the official repository!** 
 
-We ask you not to do this to avoid creating duplicates in search engine results and confusing readers.
+A fork can be made to publish the documentation to the web by modifying the [workflow file](.github/workflows/main.yml) to allow deployment on any repository, or by manually committing the built HTML documentation files to the publishing source branch on the fork. Please do not do this.
+
+We ask you not to publish the version of the documentation on a fork to avoid creating duplicates in search engine results and confusing readers.
 If a contributor's fork publishes documentation to <https://username.github.io/HPC-community-docs/>, then this will result in multiple versions of the HPC community documentation being publicly accessible.
 For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo].
 
 To ensure the canonical version of the HPC community documentation at <https://acrc.github.io/HPC-community-docs/> is easily findable by users, please do not publish documentation you are working on in a fork to the web.
 If you need view the result of a build from an Actions workflow run, you can do this locally by [downloading the a build artifact](#downloading-documentation-build-artifact) for the workflow run.
 ### Downloading documentation build artifact
-If you want to check the result of the documentation build job in the Actions workflow, you can download a zip archive containing the built HTML documentation for a given workflow run.
-This can be downloaded by selecting a workflow run on the repository Actions tab, then selecting `built-html-docs` under "Artifacts".
+If you want to check the result of the documentation build job in a workflow run, you can download a zip archive containing the built HTML documentation for that specific workflow run.
+This can be downloaded by selecting the workflow run on the repository Actions tab, then selecting `built-html-docs` under "Artifacts".
 The built documentation can be viewed locally by decompressing the archive and opening `index.html` in a web browser, as [described above](#3-view-the-result) (the archive contains the contents of the `build/html/` directory created during the [build process](#running-the-build-process)).
 
-The build artifact containing the built documentation can be downloaded for workflows run on pull requests.
+The artifact containing the built documentation can be downloaded for workflows run on pull requests.
 To access the workflow run page where the artifact can be downloaded from a pull request page, select "Details" next to the "Build HTML documentation" item in the list of checks.
 
 Workflows on pull requests are run in the context of the base repository for the pull request (i.e. the repository into which the pull request would merge changes) and are also visible under the base repository's Actions tab.
-The `built-html-docs` artifact for a workflow running on a pull request that requests merging changes into the `main` branch of the [official repository][acrc-hpc-community-docs-repo] contains the built documentation as would be published on the web, if the pull request was merged.
+The `built-html-docs` artifact for a workflow running on a pull request to merge changes into the `main` branch of the [official repository][acrc-hpc-community-docs-repo] contains the built documentation as would be published on the web (upon merging the pull request).
 
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
