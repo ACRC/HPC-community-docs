@@ -12,10 +12,12 @@ Thank you for your interest in contributing! This document collects useful infor
 * [Building the documentation](#building-the-documentation)
 * [Modifying and adding to the documentation](#modifying-and-adding-to-the-documentation)
 * [Contributing changes to the repository](#contributing-changes-to-the-repository)
+* [Deployment of the documentation](#deployment-of-the-documentation)
 * [Asking for help](#asking-for-help)
 
 ## Key links
 
+* [Documentation website][acrc-hpc-community-docs-website]: HPC community documentation deployed as HTML website
 * [README.md](README.md): general information about the repository and documentation project
 * [LICENSE.md](LICENSE.md): licenses for content in the repository
 * [Issues][acrc-hpc-community-docs-issues]: the place to raise and discuss bugs, issues, enhancements
@@ -183,7 +185,7 @@ Before making your contribution, please ensure
 
 ### Workflow
 The HPC community documentation project uses the [fork and pull model][fork-and-pull-model] for collaborative development (also known as the [forking workflow][forking-workflow]).
-To develop and contribute changes to the documentation, 
+To develop and contribute changes to the documentation:
 
 * Create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo] on GitHub
 * Clone the forked repository onto your local machine
@@ -200,6 +202,55 @@ To keep your fork and feature branches up-to-date, it is recommended to regularl
 Keeping the `main` branch in your fork synchronised with the `main` branch in the upstream repository ensures contributions from others to the upstream repository are incorporated into the fork.
 Merging changes from upstream `main` into active feature branches on your fork helps avoid complex merge conflicts arising when creating a pull request.
 
+## Deployment of the documentation
+
+The HPC community documentation project uses [GitHub Actions][github-docs-actions] to automate building of the documentation into a HTML website and publishing (deployment) of the website.
+The website is published using [GitHub Pages][github-pages] at <https://acrc.github.io/HPC-community-docs/>.
+
+The GitHub Actions [workflow][github-docs-actions-workflows] for building and deploying the documentation is defined in [.github/workflows/main.yml](.github/workflows/main.yml).
+The workflow is run on a [GitHub-hosted virtual machine ("runner")][github-docs-hosted-runners] whenever commits are pushed to the repository (to any branch) and when a pull request is opened, updated (with new commits), or reopened.
+When run, the workflow will always attempt to build the documentation, but will only deploy the built website to GitHub Pages for commits to the `main` branch on the [official repository][acrc-hpc-community-docs-repo].
+
+For a commit pushed to a branch, the workflow will run using the documentation source files present in the pushed commit.
+For a pull request, the workflow will run using the source files as they would be if the pull request was merged ([on the `refs/pull/prNumber/merge` branch][github-docs-events-trigger-push]).
+
+Information about current and past workflow runs on the official repository can be viewed in the [Actions tab on the repository GitHub page][acrc-hpc-community-docs-actions].
+
+### Actions on forks
+When you create a [fork][github-docs-forks] of the [HPC-community-docs GitHub repository][acrc-hpc-community-docs-repo], GitHub Actions will initially be disabled on the fork.
+The fork's Actions tab on GitHub will display a message indicating that workflows are not being run on the forked repository and a button that enables workflows.
+
+Once Actions are enabled on a fork of the HPC-community-docs repository, the workflow will run in the context of the fork whenever commits are pushed to a branch on that fork.
+
+The [workflow](.github/workflows/main.yml) will build the documentation, but will not deploy the built website to GitHub Pages, even if commits are pushed to the `main` branch of the fork.
+This is because the deployment job in the workflow will only run on the `main` branch of the [official repository][acrc-hpc-community-docs-repo].
+
+GitHub Pages is also disabled when creating a fork (see the "Pages" section in the forked repository settings).
+The official repository uses the root of the `publishing-source` branch as the [publishing source for GitHub Pages][github-docs-pages-publishing-source] rather than the [default `gh-pages` branch][github-docs-pages-default-publishing-source].
+This avoids automatic activation of GitHub Pages when the official repository is forked.
+
+### Do not publish to GitHub Pages on forks!
+**Please do not deploy the built documentation to GitHub Pages on your forked version of the official repository!** 
+
+A fork can be made to publish the documentation to the web by modifying the [workflow file](.github/workflows/main.yml) to allow deployment on any repository, or by manually committing the built HTML documentation files to the publishing source branch on the fork. Please do not do this.
+
+We ask you not to publish the version of the documentation on a fork to avoid creating duplicates in search engine results and confusing readers.
+If a contributor's fork publishes documentation to <https://username.github.io/HPC-community-docs/>, then this will result in multiple versions of the HPC community documentation being publicly accessible.
+For readers of the documentation, it would be easy to accidentally find and use the version of the documentation published by a fork, rather than the version published from the [official repository][acrc-hpc-community-docs-repo].
+
+To ensure the canonical version of the HPC community documentation at <https://acrc.github.io/HPC-community-docs/> is easily findable by users, please do not publish documentation you are working on in a fork to the web.
+If you need view the result of a build from an Actions workflow run, you can do this locally by [downloading the a build artifact](#downloading-documentation-build-artifact) for the workflow run.
+### Downloading documentation build artifact
+If you want to check the result of the documentation build job in a workflow run, you can download a zip archive containing the built HTML documentation for that specific workflow run.
+This can be downloaded by selecting the workflow run on the repository Actions tab, then selecting `built-html-docs` under "Artifacts".
+The built documentation can be viewed locally by decompressing the archive and opening `index.html` in a web browser, as [described above](#3-view-the-result) (the archive contains the contents of the `build/html/` directory created during the [build process](#running-the-build-process)).
+
+The artifact containing the built documentation can be downloaded for workflows run on pull requests.
+To access the workflow run page where the artifact can be downloaded from a pull request page, select "Details" next to the "Build HTML documentation" item in the list of checks.
+
+Workflows on pull requests are run in the context of the base repository for the pull request (i.e. the repository into which the pull request would merge changes) and are also visible under the base repository's Actions tab.
+The `built-html-docs` artifact for a workflow running on a pull request to merge changes into the `main` branch of the [official repository][acrc-hpc-community-docs-repo] contains the built documentation as would be published on the web (upon merging the pull request).
+
 ## Asking for help
 For general queries related to the ACRC and ACRC HPC facilities, please contact the [ACRC team directly][acrc-contact].
 
@@ -207,6 +258,7 @@ If you need assistance with preparing a contribution to the HPC community docume
 
 <!-- REFERENCES -->
 [acrc-website]: https://www.bristol.ac.uk/acrc/ "Advanced Computing Research Centre bristol.ac.uk website"
+[acrc-hpc-community-docs-website]: https://acrc.github.io/HPC-community-docs/ "ACRC HPC community documentation website"
 [acrc-hpc-community-docs-issues]: https://github.com/ACRC/HPC-community-docs/issues "ACRC HPC community documentation GitHub Issues"
 [myst-parser]: https://myst-parser.readthedocs.io/en/latest/ "MyST - Markedly Structured Text"
 [sphinx-rest-primer]: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html "Sphinx reStructuredText Primer"
@@ -240,6 +292,14 @@ If you need assistance with preparing a contribution to the HPC community docume
 [github-docs-forks]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks "Working with forks"
 [github-docs-pr-from-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork "Creating a pull request from a fork"
 [github-docs-sync-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork" 
+[github-docs-actions]: https://docs.github.com/en/actions "GitHub Actions"
+[github-pages]: https://pages.github.com/ "GitHub Pages"
+[github-docs-actions-workflows]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows "Workflows"
+[github-docs-hosted-runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners "About GitHub-hosted runners"
+[github-docs-events-trigger-push]: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request "Events that trigger workflows: pull_request"
+[acrc-hpc-community-docs-actions]: https://github.com/ACRC/HPC-community-docs/actions "ACRC HPC community documentation GitHub Actions"
+[github-docs-pages-publishing-source]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site "Configuring a publishing source for your GitHub Pages site"
+[github-docs-pages-default-publishing-source]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites
 [acrc-contact]: https://www.bristol.ac.uk/acrc/contact/ "Contact the ACRC"
 [uob-directory-jcwomack]: https://www.bris.ac.uk/contact/person/getDetails?personKey=kbwP3F8vd3QrkvAdDAYPnFXOILXiny "James C. Womack at University of Bristol"
 [github-jcwomack]: https://github.com/jcwomack "James C. Womack on GitHub"
