@@ -1,0 +1,18 @@
+/*
+	Use a custom colour (seagreen) for the navigation sidebar/top bar background
+*/
+.wy-side-nav-search {
+	background-color: #2e8b57;
+}
+
+.wy-nav-top {
+	background-color: #2e8b57;
+}
+
+/*
+	Use a custom colour (lightseagreen) for the heading of the contents in the
+	navigation sidebar ("Contents:")
+*/
+.wy-menu-vertical p.caption {
+	color: #20b2aa;
+}
