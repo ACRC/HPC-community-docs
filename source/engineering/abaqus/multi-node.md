@@ -6,7 +6,7 @@ Large parallel Abaqus jobs, using more than 28 processors, can be run on across 
 
 ```{tip}
 Multi-node parallelism is best-suited to Abaqus/Explicit.
-Abaqus/Standard (implicit) does not scale well across multiple nodes
+Abaqus/Standard (implicit) does not scale well across multiple nodes.
 ```
 
 ## Job Script Template
@@ -57,5 +57,5 @@ There are number of important differences with the single-node job script exampl
 
 ### How to use
 
-Follow the same steps are described for the single-node example except
+Follow the same steps are described for the {doc}`single-node example <single-node>` except
 you can scale the paralellism by changing the number of nodes (line 4).

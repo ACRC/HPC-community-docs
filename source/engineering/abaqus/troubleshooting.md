@@ -42,7 +42,8 @@ You can address this issue by increasing the requested `--mem-per-cpu` in your j
 sbatch: error: Batch job submission failed: Requested node configuration is not available
 ```
 
-This error message can occur when you request too many resources (_e.g._ cpus,memory) than is available
+This error message can occur when you request too many resources (_e.g._ cpus, memory) than is available
+
 on the cluster nodes.
 
 ```{note}
@@ -67,8 +68,9 @@ abaqus job=<job-name> cpus=${SLURM_NTASKS} user=<usub-file> mp_mode=threads doub
 
 ## Job Terminates Unexpectedly
 
-If your jobs ends before the alloted maximum time, make sure you are running the job
+If your jobs ends before the allotted maximum time, make sure you are running the job
+
 in your _scratch_ space (`/user/work/<username>`) and not your `$HOME` space (`/user/home/<username>`).
 
 Make sure also that you have enough space remaining in your scratch space;
-you can check with the `user_quota command`.
+you can check with the `user-quota` command.

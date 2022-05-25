@@ -4,10 +4,10 @@ title: "Abaqus"
 
 The aim of this guide is to provide basic information and example job scripts
 for how to run Abaqus on the [University of Bristol HPC systems](https://www.bristol.ac.uk/acrc/high-performance-computing/)
-BlueCrystal and BluePebble.
+BlueCrystal Phase 4 and BluePebble.
 
 ```{note}
-This content of this guide is open source, and contributions are welcomed from the Abaqus user community!
+The content of this guide is open source, and contributions are welcomed from the Abaqus user community!
 If you see something wrong in this guide or have something to add, then please see [here](https://acrc.github.io/HPC-community-docs)
 for how to get involved and contribute.
 ```
@@ -16,7 +16,7 @@ Some basic familiarity with the Linux command line and remote HPC systems is ass
 if you are unfamiliar or need a refresher, then the following courses are recommended:
 
 - [Introduction to the command line](https://altanner.github.io/intro_to_CLI/)
-- [Logging on to UoB HPC systems](https://www.acrc.bris.ac.uk/protected/hpc-docs/connecting/index.html)
+- [Introduction to High Performance Computing](https://www.acrc.bris.ac.uk/protected/hpc-docs/training/intro-to-hpc-slurm/index.html)
 
 ## Setup
 
@@ -26,15 +26,15 @@ Before using Abaqus at the university, you must first register for an Abaqus lic
 Please speak to your supervisor to obtain a charge code for the license.
 ```
 
-Abaqus is available as a module on BlueCrystal and BluePebble and can be loaded into the shell environment using
+Abaqus is available as a module on BlueCrystal Phase 4 and BluePebble and can be loaded into the shell environment using
 
-```
+```console
 $ module load apps/abaqus/2018
 ```
 
 You can verify if Abaqus has been setup correctly by running the following command:
 
-```bash
+```console
 $ abaqus information=version
 ```
 
@@ -55,7 +55,7 @@ If you are using custom user subroutines, you will also need to load the Intel F
 
 ```{important}
 Abaqus licenses are shared across the university in a fair-use manner: 
-this means that you __should not run a large number of abaqus job
+this means that you __should not run a large number of Abaqus jobs
 simultaneously__ as this prevents other users from running Abaqus.
 ```
 

@@ -69,7 +69,7 @@ will depend on your specific problem. `threads` is recommended and known to work
 ```{important}
 Make sure that you run your jobs using your _scratch_ space
 in `/user/work/<username>/` and not from your `$HOME` directory
-in `/user/home/<username>`. Your `$HOME` storage only has 20GB
-of space, whereas your scratch space has 0.5TB.
+in `/user/home/<username>`. Your `$HOME` storage only has 20 GB (BlueCrystal) or 25 GB (BluePebble)
+of space, whereas your scratch space has 1 TB.
 ```
 

@@ -8,4 +8,4 @@
   Name: Laurence J. Kedward
   Role: Research Software Engineer
   Contributions: Abaqus user documentation
-  Github: https://github.com/LKedward
+  GitHub: https://github.com/LKedward
