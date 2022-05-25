@@ -40,15 +40,19 @@ $ abaqus information=version
 
 If you are using custom user subroutines, you will also need to load the Intel Fortran compiler:
 
-````{tab-set}
-```{tab-item} BlueCrystal (Phase 4)
-`$ module load intel/2016b`
+::::{tab-set}
+:::{tab-item} BlueCrystal (Phase 4)
+```console
+$ module load languages/intel/2020-u4
 ```
+:::
 
-```{tab-item} BluePebble
-`$ module load lang/intel-parallel-studio-xe/2020`
+:::{tab-item} BluePebble
+```console
+$ module load lang/intel-parallel-studio-xe/2020
 ```
-````
+:::
+::::
 
 ## Fair Use
 

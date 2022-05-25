@@ -69,3 +69,6 @@ html_static_path = ['_static']
 # -- MyST parser --
 # Use title: key in YAML frontmatter to set document title
 myst_title_to_header = True
+
+# MyST extensions
+myst_enable_extensions = ["colon_fence"]
