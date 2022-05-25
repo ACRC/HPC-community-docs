@@ -2,7 +2,7 @@
 title: "Multi-Node Jobs"
 ---
 
-Large parallel Abaqus jobs, using more than 28 processors, can be run on across multiple nodes using MPI.
+Large parallel Abaqus jobs can be run on across multiple nodes using MPI.
 
 ```{tip}
 Multi-node parallelism is best-suited to Abaqus/Explicit.

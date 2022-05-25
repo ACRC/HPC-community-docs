@@ -2,7 +2,7 @@
 title: "Single-Node Jobs"
 ---
 
-Small scale Abaqus jobs can be run on a single node with up to 28 processors.
+Small scale Abaqus jobs can be run on a single node.
 
 ## Job Script Template
 
@@ -45,7 +45,8 @@ will depend on your specific problem. `threads` is recommended and known to work
     - Copy your Abaqus job file (`.inp`) and Fortran user subroutine (if using) into the same folder
 
 2. Update the number of processors to use (line 6)
-    - On BluePebble and BlueCrystal, the maximum number of processors per node is 28
+    - On BluePebble the maximum number of processors per standard node is 24
+    - On BlueCrystal the maximum number of processors per node is 28
 
 3. Update the time limit (line 7)
     - You should update this to however long you require for your Abaqus job.
