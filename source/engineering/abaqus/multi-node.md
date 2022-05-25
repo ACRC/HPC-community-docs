@@ -17,7 +17,7 @@ Here is an example job submission script for a multi-node Abaqus job:
 ---
 linenos: true
 ---
-#!/usr/bin/env bash -l
+#!/usr/bin/bash -l
 # 
 #SBATCH --job-name=my_job
 #SBATCH --nodes=2
