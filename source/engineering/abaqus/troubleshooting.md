@@ -43,14 +43,13 @@ sbatch: error: Batch job submission failed: Requested node configuration is not 
 ```
 
 This error message can occur when you request too many resources (_e.g._ cpus, memory) than is available
-
 on the cluster nodes.
 
 ```{note}
 Your total memory request is the `--mem-per-cpu` parameter multiplied by
 the number of cpus you have requested.
-On BlueCrystal you can request up to a total of 132GB RAM per node.
-On BluePebble you can request up to a total of 192GB of RAM per node.
+You can find out how much RAM is available per node in the ACRC HPC documentation
+[here (UoB only)](https://www.acrc.bris.ac.uk/protected/hpc-docs/training/intro-to-hpc-slurm/acrc_systems.html).
 ```
 
 
