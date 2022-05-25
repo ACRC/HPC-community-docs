@@ -68,7 +68,6 @@ abaqus job=<job-name> cpus=${SLURM_NTASKS} user=<usub-file> mp_mode=threads doub
 ## Job Terminates Unexpectedly
 
 If your jobs ends before the allotted maximum time, make sure you are running the job
-
 in your _scratch_ space (`/user/work/<username>`) and not your `$HOME` space (`/user/home/<username>`).
 
 Make sure also that you have enough space remaining in your scratch space;
