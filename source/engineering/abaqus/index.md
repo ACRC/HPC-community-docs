@@ -85,7 +85,7 @@ includehidden: true
 maxdepth: 1
 titlesonly: true
 ---
-single-node.md
-multi-node.md
-troubleshooting.md
+single-node
+multi-node
+troubleshooting
 ```
