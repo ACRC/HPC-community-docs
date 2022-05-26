@@ -202,6 +202,11 @@ To keep your fork and feature branches up-to-date, it is recommended to regularl
 Keeping the `main` branch in your fork synchronised with the `main` branch in the upstream repository ensures contributions from others to the upstream repository are incorporated into the fork.
 Merging changes from upstream `main` into active feature branches on your fork helps avoid complex merge conflicts arising when creating a pull request.
 
+### Documentation example
+
+An example collection of source files showing the recommended structure of contributed documentation for a research domain and domain-specific software package can be found in [source/example-domain/](source/example-domain/).
+Please feel free to use this example as a starting point for your own contributions.
+
 ## Deployment of the documentation
 
 The HPC community documentation project uses [GitHub Actions][github-docs-actions] to automate building of the documentation into a HTML website and publishing (deployment) of the website.
