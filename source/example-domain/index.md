@@ -1,6 +1,6 @@
 ---
 title: "Example domain"
-orphan:
+orphan: true
 ---
 
 ```{important}
