@@ -2,6 +2,13 @@
 title: "Job scripts"
 ---
 
+```{important}
+This is an example which demonstrates the recommended structure of documentation included in the HPC Community Documentation project. 
+The text refers to a fictional research domain "Example domain" and associated software package "Example Software".
+
+If you are authoring documentation to contribute to the HPC Community Documentation project, please feel free to use this example as a starting point.
+```
+
 ## Serial Example Software job
 Small scale Example Software jobs can be run in serial, using a single core.
 Here is an example where Example Software processes the input file `example.in`, producing output `example.out`. 

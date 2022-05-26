@@ -31,7 +31,6 @@ For general queries related to the ACRC and ACRC HPC facilities, please contact 
 maxdepth: 2
 caption: "Contents:"
 ---
-example-domain/index
 engineering/index
 ```
 
