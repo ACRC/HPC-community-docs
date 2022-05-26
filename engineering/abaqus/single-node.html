@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Single-Node Jobs &mdash; ACRC HPC community documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multi-Node Jobs" href="multi-node.html" />
+    <link rel="prev" title="Abaqus" href="index.html" /> 
+	<link rel="stylesheet" href="../../_static/css/customise_theme.css" type="text/css" />
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../example-domain/index.html">Example domain</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Engineering</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Abaqus</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#fair-use">Fair Use</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#running-jobs">Running Jobs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Single-Node Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multi-node.html">Multi-Node Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ACRC HPC community documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Engineering</a> &raquo;</li>
+          <li><a href="index.html">Abaqus</a> &raquo;</li>
+      <li>Single-Node Jobs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/engineering/abaqus/single-node.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="single-node-jobs">
+<h1>Single-Node Jobs<a class="headerlink" href="#single-node-jobs" title="Permalink to this headline"></a></h1>
+<p>Small scale Abaqus jobs can be run on a single node.</p>
+<section id="job-script-template">
+<h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Permalink to this headline"></a></h2>
+<p>Here is an example job submission script for a single-node Abaqus job:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/bash -l</span>
+<span class="linenos"> 2</span><span class="c1"># </span>
+<span class="linenos"> 3</span><span class="c1">#SBATCH --job-name=my_job</span>
+<span class="linenos"> 4</span><span class="c1">#SBATCH --nodes=1 </span>
+<span class="linenos"> 5</span><span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="linenos"> 6</span><span class="c1">#SBATCH --cpus-per-task=14</span>
+<span class="linenos"> 7</span><span class="c1">#SBATCH --time=0:10:00 </span>
+<span class="linenos"> 8</span><span class="c1">#SBATCH --mem-per-cpu=4000M</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Load modules </span>
+<span class="linenos">11</span>module load apps/abaqus/2018
+<span class="linenos">12</span><span class="c1"># module load languages/intel/2020-u4              # BlueCrystal (Phase 4)</span>
+<span class="linenos">13</span><span class="c1"># module load lang/intel-parallel-studio-xe/2020   # BluePebble</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work </span>
+<span class="linenos">16</span><span class="nb">unset</span> SLURM_GTIDS 
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># Launch Abaqus </span>
+<span class="linenos">19</span>abaqus <span class="nv">job</span><span class="o">=</span>&lt;job-name&gt; <span class="nv">cpus</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span> <span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt; <span class="nv">mp_mode</span><span class="o">=</span>threads <span class="nv">double</span><span class="o">=</span>both interactive
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On a single node, the best choice for best performance between <code class="docutils literal notranslate"><span class="pre">mp_mode=threads</span></code> and <code class="docutils literal notranslate"><span class="pre">mp_mode=mpi</span></code>
+will depend on your specific problem. <code class="docutils literal notranslate"><span class="pre">threads</span></code> is recommended and known to work well;
+<code class="docutils literal notranslate"><span class="pre">mpi</span></code> may be more efficient for larger problems.</p>
+</div>
+<section id="how-to-use">
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline"></a></h3>
+<ol class="arabic simple">
+<li><p>Create a new job file (<em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">job.sh</span></code>) with the template above in a folder in your scratch space</p>
+<ul class="simple">
+<li><p>Copy your Abaqus job file (<code class="docutils literal notranslate"><span class="pre">.inp</span></code>) and Fortran user subroutine (if using) into the same folder</p></li>
+</ul>
+</li>
+<li><p>Update the number of processors to use (line 6)</p>
+<ul class="simple">
+<li><p>On BluePebble the maximum number of processors per standard node is 24</p></li>
+<li><p>On BlueCrystal the maximum number of processors per node is 28</p></li>
+</ul>
+</li>
+<li><p>Update the time limit (line 7)</p>
+<ul class="simple">
+<li><p>You should update this to however long you require for your Abaqus job.</p></li>
+<li><p>The format for the time limit is <code class="docutils literal notranslate"><span class="pre">days-hours:minutes:seconds</span></code></p></li>
+<li><p>See <a class="reference external" href="https://slurm.schedmd.com/sbatch.html#OPT_time">here</a> for more help on <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">--time</span></code></p></li>
+</ul>
+</li>
+<li><p>Update the memory per cpu (line 8)</p>
+<ul class="simple">
+<li><p>Increase this value if you encounter an <code class="docutils literal notranslate"><span class="pre">oom-kill</span></code> or <code class="docutils literal notranslate"><span class="pre">out-of-memory</span></code> error message in your output file</p></li>
+</ul>
+</li>
+<li><p>If you are using custom user subroutines:</p>
+<ul class="simple">
+<li><p>Uncomment either line 12 or line 13 to add the Intel Fortran compiler depending on which system you are running on (BlueCrystal or BluePebble)</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;usub-file&gt;</span></code> on the last line with the name of your Fortran user subroutine source file (<em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">usub_czm.f</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;job-name&gt;</span></code> on the last line with the name of your Abaqus job input file (<code class="docutils literal notranslate"><span class="pre">.inp</span></code>)</p></li>
+<li><p>Submit the job to slurm:</p>
+<ul class="simple">
+<li><p>Change directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>) into the folder containing your job files and job script</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sbatch</span> <span class="pre">job.sh</span></code> where <code class="docutils literal notranslate"><span class="pre">job.sh</span></code> is the name of your job script</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Make sure that you run your jobs using your <em>scratch</em> space
+in <code class="docutils literal notranslate"><span class="pre">/user/work/&lt;username&gt;/</span></code> and not from your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory
+in <code class="docutils literal notranslate"><span class="pre">/user/home/&lt;username&gt;</span></code>. Your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> storage only has 20 GB (BlueCrystal) or 25 GB (BluePebble)
+of space, whereas your scratch space has 1 TB.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Abaqus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multi-node.html" class="btn btn-neutral float-right" title="Multi-Node Jobs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, University of Bristol.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Node Jobs &mdash; ACRC HPC community documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Single-Node Jobs" href="single-node.html" /> 
+	<link rel="stylesheet" href="../../_static/css/customise_theme.css" type="text/css" />
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../example-domain/index.html">Example domain</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Engineering</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Abaqus</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#fair-use">Fair Use</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#running-jobs">Running Jobs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="single-node.html">Single-Node Jobs</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Multi-Node Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ACRC HPC community documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Engineering</a> &raquo;</li>
+          <li><a href="index.html">Abaqus</a> &raquo;</li>
+      <li>Multi-Node Jobs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/engineering/abaqus/multi-node.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multi-node-jobs">
+<h1>Multi-Node Jobs<a class="headerlink" href="#multi-node-jobs" title="Permalink to this headline"></a></h1>
+<p>Large parallel Abaqus jobs can be run on across multiple nodes using MPI.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Multi-node parallelism is best-suited to Abaqus/Explicit.
+Abaqus/Standard (implicit) does not scale well across multiple nodes.</p>
+</div>
+<section id="job-script-template">
+<h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Permalink to this headline"></a></h2>
+<p>Here is an example job submission script for a multi-node Abaqus job:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/bash -l</span>
+<span class="linenos"> 2</span><span class="c1"># </span>
+<span class="linenos"> 3</span><span class="c1">#SBATCH --job-name=my_job</span>
+<span class="linenos"> 4</span><span class="c1">#SBATCH --nodes=2</span>
+<span class="linenos"> 5</span><span class="c1">#SBATCH --ntasks-per-node=28</span>
+<span class="linenos"> 6</span><span class="c1">#SBATCH --cpus-per-task=1 </span>
+<span class="linenos"> 7</span><span class="c1">#SBATCH --time=0:10:00 </span>
+<span class="linenos"> 8</span><span class="c1">#SBATCH --mem-per-cpu=4000M</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Load modules </span>
+<span class="linenos">11</span>module load apps/abaqus/2018
+<span class="linenos">12</span><span class="c1"># module load languages/intel/2020-u4              # BlueCrystal (Phase 4)</span>
+<span class="linenos">13</span><span class="c1"># module load lang/intel-parallel-studio-xe/2020   # BluePebble</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work </span>
+<span class="linenos">16</span><span class="nb">unset</span> SLURM_GTIDS 
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># Get allocated nodes for Abaqus</span>
+<span class="linenos">19</span><span class="nv">env_file</span><span class="o">=</span>abaqus_v6.env 
+<span class="linenos">20</span><span class="nv">node_list</span><span class="o">=</span><span class="k">$(</span>scontrol show hostname <span class="si">${</span><span class="nv">SLURM_NODELIST</span><span class="si">}</span> <span class="p">|</span> sort -u<span class="k">)</span> 
+<span class="linenos">21</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;[&quot;</span> 
+<span class="linenos">22</span><span class="k">for</span> host <span class="k">in</span> <span class="si">${</span><span class="nv">node_list</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span> 
+<span class="linenos">23</span>    <span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">[&#39;</span><span class="nv">$host</span><span class="s2">&#39;, </span><span class="si">${</span><span class="nv">SLURM_CPUS_ON_NODE</span><span class="si">}</span><span class="s2">],&quot;</span> 
+<span class="linenos">24</span><span class="k">done</span> 
+<span class="linenos">25</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span> <span class="p">|</span> sed -e <span class="s2">&quot;s/,</span>$<span class="s2">/]/&quot;</span><span class="k">)</span> 
+<span class="linenos">26</span><span class="nb">echo</span> <span class="s2">&quot;mp_host_list=</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">&quot;</span>  &gt;&gt; <span class="si">${</span><span class="nv">env_file</span><span class="si">}</span> 
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1"># Launch Abaqus </span>
+<span class="linenos">29</span>abaqus <span class="nv">job</span><span class="o">=</span>&lt;job-name&gt; <span class="nv">cpus</span><span class="o">=</span><span class="k">$((</span>SLURM_NTASKS_PER_NODE*SLURM_NNODES<span class="k">))</span> <span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt; <span class="nv">mp_mode</span><span class="o">=</span>mpi <span class="nv">double</span><span class="o">=</span>both interactive
+</pre></div>
+</div>
+<p>There are number of important differences with the single-node job script example:</p>
+<ul class="simple">
+<li><p>More than one node is requested</p></li>
+<li><p>We request multiple tasks per node (distributed parallelism), instead of multiple cpus per task (thread-based parallelism)</p></li>
+<li><p>We have extra lines to inform Abaqus platform MPI about the nodes that have been allocated via the job scheduler</p></li>
+<li><p>We <strong>must</strong> use <code class="docutils literal notranslate"><span class="pre">mp_mode=mpi</span></code> for multi-node parallelism</p></li>
+</ul>
+<section id="how-to-use">
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline"></a></h3>
+<p>Follow the same steps are described for the <a class="reference internal" href="single-node.html"><span class="doc">single-node example</span></a> except
+you can scale the paralellism by changing the number of nodes (line 4).</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="single-node.html" class="btn btn-neutral float-left" title="Single-Node Jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, University of Bristol.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

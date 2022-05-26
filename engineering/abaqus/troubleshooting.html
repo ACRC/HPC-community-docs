@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; ACRC HPC community documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Multi-Node Jobs" href="multi-node.html" /> 
+	<link rel="stylesheet" href="../../_static/css/customise_theme.css" type="text/css" />
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../example-domain/index.html">Example domain</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Engineering</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Abaqus</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#fair-use">Fair Use</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#running-jobs">Running Jobs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="single-node.html">Single-Node Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multi-node.html">Multi-Node Jobs</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ACRC HPC community documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Engineering</a> &raquo;</li>
+          <li><a href="index.html">Abaqus</a> &raquo;</li>
+      <li>Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/engineering/abaqus/troubleshooting.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h1>
+<section id="license-not-authorized-for-user">
+<h2>License not Authorized for User<a class="headerlink" href="#license-not-authorized-for-user" title="Permalink to this headline"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Failed to checkout DSLS license for: QAE
+ERROR 1A000035: License not authorized for this user
+...
+</pre></div>
+</div>
+<p>If you receive this error when trying to run Abaqus, then you first need to
+register for a university Abaqus license
+<a class="reference external" href="https://forms.office.com/pages/responsepage.aspx?id=MH_ksn3NTkql2rGM8aQVG0Ep7WjCs19BiAIhW6hXMWlUREtGTFQwS0sySUtGNzZON1MzR1A5TUJKMS4u">here</a>.</p>
+</section>
+<section id="out-of-memory">
+<h2>Out of Memory<a class="headerlink" href="#out-of-memory" title="Permalink to this headline"></a></h2>
+<p>If you do not request sufficient memory for your job, then it may be terminated by
+the job scheduler with the following error message (check the log output files):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>slurmstepd: error: Detect 1 oom-kill event(s) in StepId=xxxxxx.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
+</pre></div>
+</div>
+<p>This may also be accompanied by the following Abaqus error message (or similar):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Abaqus Error: The executable explicit_dp
+aborted with system error &quot;Termination signal&quot; (signal 9)
+</pre></div>
+</div>
+<p>You can address this issue by increasing the requested <code class="docutils literal notranslate"><span class="pre">--mem-per-cpu</span></code> in your job submission script.</p>
+</section>
+<section id="node-configuration-not-available">
+<h2>Node Configuration not Available<a class="headerlink" href="#node-configuration-not-available" title="Permalink to this headline"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sbatch: error: Batch job submission failed: Requested node configuration is not available
+</pre></div>
+</div>
+<p>This error message can occur when you request too many resources (<em>e.g.</em> cpus, memory) than is available
+on the cluster nodes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your total memory request is the <code class="docutils literal notranslate"><span class="pre">--mem-per-cpu</span></code> parameter multiplied by
+the number of cpus you have requested.
+You can find out how much RAM is available per node in the ACRC HPC documentation
+<a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/training/intro-to-hpc-slurm/acrc_systems.html">here (UoB only)</a>.</p>
+</div>
+</section>
+<section id="job-terminates-immediately">
+<h2>Job Terminates Immediately<a class="headerlink" href="#job-terminates-immediately" title="Permalink to this headline"></a></h2>
+<p>If your job ends immediately after starting, make sure you have specified the <code class="docutils literal notranslate"><span class="pre">interactive</span></code>
+keyword for Abaqus in your job script.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>abaqus <span class="nv">job</span><span class="o">=</span>&lt;job-name&gt; <span class="nv">cpus</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_NTASKS</span><span class="si">}</span> <span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt; <span class="nv">mp_mode</span><span class="o">=</span>threads <span class="nv">double</span><span class="o">=</span>both interactive
+</pre></div>
+</div>
+</section>
+<section id="job-terminates-unexpectedly">
+<h2>Job Terminates Unexpectedly<a class="headerlink" href="#job-terminates-unexpectedly" title="Permalink to this headline"></a></h2>
+<p>If your jobs ends before the allotted maximum time, make sure you are running the job
+in your <em>scratch</em> space (<code class="docutils literal notranslate"><span class="pre">/user/work/&lt;username&gt;</span></code>) and not your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> space (<code class="docutils literal notranslate"><span class="pre">/user/home/&lt;username&gt;</span></code>).</p>
+<p>Make sure also that you have enough space remaining in your scratch space;
+you can check with the <code class="docutils literal notranslate"><span class="pre">user-quota</span></code> command.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="multi-node.html" class="btn btn-neutral float-left" title="Multi-Node Jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, University of Bristol.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
