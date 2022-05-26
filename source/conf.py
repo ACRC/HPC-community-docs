@@ -32,6 +32,7 @@ author = 'University of Bristol ACRC and researchers'
 extensions = [
     'myst_parser',
     'sphinx_rtd_theme',
+    'sphinx_design'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -68,3 +69,6 @@ html_static_path = ['_static']
 # -- MyST parser --
 # Use title: key in YAML frontmatter to set document title
 myst_title_to_header = True
+
+# MyST extensions
+myst_enable_extensions = ["colon_fence"]
