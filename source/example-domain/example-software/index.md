@@ -13,7 +13,7 @@ If you are authoring documentation to contribute to the HPC Community Documentat
 ---
 hidden: true
 ---
-job_scripts.md
+job_scripts
 ```
 
 Example Software is available as a module on BlueCrystal and BluePebble and can be loaded into the shell environment using
