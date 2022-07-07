@@ -55,6 +55,7 @@ will depend on your specific problem. `threads` is recommended and known to work
 
 4. Update the memory per cpu (line 8)
     - Increase this value if you encounter an `oom-kill` or `out-of-memory` error message in your output file
+    - Requesting too little memory (<500M) may cause the compilation or linking of large user subroutines to fail
 
 5. If you are using custom user subroutines:
     - Uncomment either line 12 or line 13 to add the Intel Fortran compiler depending on which system you are running on (BlueCrystal or BluePebble)
