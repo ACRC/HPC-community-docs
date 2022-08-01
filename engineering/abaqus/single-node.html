@@ -15,6 +15,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -85,10 +86,10 @@
            <div itemprop="articleBody">
              
   <section id="single-node-jobs">
-<h1>Single-Node Jobs<a class="headerlink" href="#single-node-jobs" title="Permalink to this headline"></a></h1>
+<h1>Single-Node Jobs<a class="headerlink" href="#single-node-jobs" title="Permalink to this heading"></a></h1>
 <p>Small scale Abaqus jobs can be run on a single node.</p>
 <section id="job-script-template">
-<h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Permalink to this headline"></a></h2>
+<h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Permalink to this heading"></a></h2>
 <p>Here is an example job submission script for a single-node Abaqus job:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/bash -l</span>
 <span class="linenos"> 2</span><span class="c1"># </span>
@@ -118,7 +119,7 @@ will depend on your specific problem. <code class="docutils literal notranslate"
 <code class="docutils literal notranslate"><span class="pre">mpi</span></code> may be more efficient for larger problems.</p>
 </div>
 <section id="how-to-use">
-<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline"></a></h3>
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Create a new job file (<em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">job.sh</span></code>) with the template above in a folder in your scratch space</p>
 <ul class="simple">
@@ -141,6 +142,7 @@ will depend on your specific problem. <code class="docutils literal notranslate"
 <li><p>Update the memory per cpu (line 8)</p>
 <ul class="simple">
 <li><p>Increase this value if you encounter an <code class="docutils literal notranslate"><span class="pre">oom-kill</span></code> or <code class="docutils literal notranslate"><span class="pre">out-of-memory</span></code> error message in your output file</p></li>
+<li><p>Requesting too little memory (&lt;500M) may cause the compilation or linking of large user subroutines to fail</p></li>
 </ul>
 </li>
 <li><p>If you are using custom user subroutines:</p>
