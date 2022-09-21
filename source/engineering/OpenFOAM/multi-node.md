@@ -2,62 +2,62 @@
 title: "Multi-Node Jobs"
 ---
 
-Large parallel Abaqus jobs can be run on across multiple nodes using MPI.
+Large OpenFOAM jobs can be run on multi nodes.
 
-```{tip}
-Multi-node parallelism is best-suited to Abaqus/Explicit.
-Abaqus/Standard (implicit) does not scale well across multiple nodes.
-```
 
 ## Job Script Template
 
-Here is an example job submission script for a multi-node Abaqus job:
+Here is an example job submission script for a multi-node OpenFOAM job:
 
 ```{code-block} bash
 ---
 linenos: true
 ---
-#!/usr/bin/bash -l
-# 
+#!/bin/bash
+## Submission script for Cluster
 #SBATCH --job-name=my_job
-#SBATCH --nodes=2
+#SBATCH --time=0-01:00:00 # hh:mm:ss
+#SBATCH --nodes=4
 #SBATCH --ntasks-per-node=28
-#SBATCH --cpus-per-task=1 
-#SBATCH --time=0:10:00 
-#SBATCH --mem-per-cpu=4000M
+#SBATCH --cpus-per-task=1
 
 
-lalalalalalalal
-# Load modules 
-module load apps/abaqus/2018
-# module load languages/intel/2020-u4              # BlueCrystal (Phase 4)
-# module load lang/intel-parallel-studio-xe/2020   # BluePebble
+#SBATCH --partition=cpu
 
-# Unset SLURM's Global Task ID for ABAQUS's PlatformMPI to work 
-unset SLURM_GTIDS 
+## system error message output file
+## leave %j as it's being replaced by JOB ID number
+#SBATCH -e aai_LD_%j.err
 
-# Get allocated nodes for Abaqus
-env_file=abaqus_v6.env 
-node_list=$(scontrol show hostname ${SLURM_NODELIST} | sort -u) 
-mp_host_list="[" 
-for host in ${node_list}; do 
-    mp_host_list="${mp_host_list}['$host', ${SLURM_CPUS_ON_NODE}]," 
-done 
-mp_host_list=$(echo ${mp_host_list} | sed -e "s/,$/]/") 
-echo "mp_host_list=${mp_host_list}"  >> ${env_file} 
+## system message output file
+#SBATCH -o aai_LD_%j.out
 
-# Launch Abaqus 
-abaqus job=<job-name> cpus=$((SLURM_NTASKS_PER_NODE*SLURM_NNODES)) user=<usub-file> mp_mode=mpi double=both interactive
+# record some potentially useful details about the job: 
+echo Running on host $(hostname) 
+echo Time is $(date) 
+echo Directory is $(pwd) 
+echo Slurm job ID is ${SLURM_JOBID} 
+echo This jobs runs on the following machines: 
+echo ${SLURM_JOB_NODELIST} 
+printf "\n\n\n\n" 
+
+# Load modules required for runtime e.g.
+module load apps/openfoam/6
+
+#export I_MPI_PROCESS_MANAGER=mpd
+
+
+# Run the solver. Take pisoFoam with 112 processors for example:
+mpirun -np 112 pisoFoam -parallel 
+
+echo End Time is $(date) 
+echo "Done pimpleFoam finish"
+printf "\n\n"
+
 ```
 
-There are number of important differences with the single-node job script example:
-- More than one node is requested
-- We request multiple tasks per node (distributed parallelism), instead of multiple cpus per task (thread-based parallelism)
-- We have extra lines to inform Abaqus platform MPI about the nodes that have been allocated via the job scheduler
-- We __must__ use `mp_mode=mpi` for multi-node parallelism
-
-
+```{note}
+Further explanation of the script could be found in: https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/index.html
+```
 ### How to use
+Save the script file in the case folder, and submit it to Slurm after the decomposition of mesh and initial field data. The processors number is the nodes number times the number of tasks per node. 
 
-Follow the same steps are described for the {doc}`single-node example <single-node>` except
-you can scale the paralellism by changing the number of nodes (line 4).
