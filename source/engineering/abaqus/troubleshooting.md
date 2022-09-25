@@ -36,6 +36,21 @@ aborted with system error "Termination signal" (signal 9)
 You can address this issue by increasing the requested `--mem-per-cpu` in your job submission script.
 
 
+## Problem During Linking
+
+The compilation and linking of large complex user subroutines may require much more memory
+than the actual Abaqus job that you intend to run.
+
+If you encounter an error similar to the following:
+
+```text
+ifort: error #10106: Fatal error in ld
+Abaqus Error: Problem during Linking ...
+```
+
+Then you should check that your requested memory limit is not too low (<500M) and try increasing it.
+
+
 ## Node Configuration not Available
 
 ```text
