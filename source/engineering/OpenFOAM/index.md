@@ -15,7 +15,7 @@ for how to get involved and contribute.
 Some basic familiarity with the Linux command line and remote HPC systems is assumed;
 if you are unfamiliar or need a refresher, then the following courses are recommended:
 
-- [Introduction to the command line](https://altanner.github.io/intro_to_CLI/)
+- [Introduction to the command line](https://alleetanner.github.io/intro_to_CLI/)
 - [Introduction to High Performance Computing](https://www.acrc.bris.ac.uk/protected/hpc-docs/training/intro-to-hpc-slurm/index.html)
 
 The official OpenFOAM documentation coud be found at http://www.openfoam.org/docs/user
