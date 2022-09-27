@@ -44,11 +44,12 @@ The tutrials in the following link intruduces the basic procedures of running Op
 - [OpenFOAM tutotrials](https://doc.cfd.direct/openfoam/user-guide-v6/tutorials)
 
 ```{note}
-1. Using PareView in BlueCrystal Phase 4 needs further environment sets.
-2. The OpenFOAM cases should be run by submitting the jobs to slurm in BlueCrystal Phase 4, introduced in the following part.
+Using [ParaView](https://www.paraview.org/) with OpenFOAM on BlueCrystal Phase 4 requires additional setup, which is not covered in this documentation.
 ```
 
 ## Running Jobs
+
+OpenFOAM should be run on BlueCrystal Phase 4 by submitting jobs to Slurm, introduced in the following sections.
 
 ```{toctree}
 ---
