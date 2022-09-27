@@ -54,7 +54,7 @@ printf "\n\n"
 ```
 
 ```{note}
-Further explanation of the script could be found in: https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/index.html
+For further information on the structure and syntax of Slurm job scripts, see the [ACRC HPC documentation pages on job types](https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/index.html).
 ```
 
 ### How to use
