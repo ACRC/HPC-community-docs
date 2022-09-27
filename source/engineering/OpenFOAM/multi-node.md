@@ -2,7 +2,7 @@
 title: "Multi-Node Jobs"
 ---
 
-Large OpenFOAM jobs can be run on multi nodes.
+Large OpenFOAM jobs can be run across multiple nodes.
 
 
 ## Job Script Template
