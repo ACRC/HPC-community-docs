@@ -40,7 +40,7 @@ $ icoFoam -help
 ```
 
 ## Get started
-The tutrials in the following link intruduces the basic procedures of running OpenFOAM.
+The tutorials in the following link introduce the basic procedures of running OpenFOAM:
 - [OpenFOAM tutotrials](https://doc.cfd.direct/openfoam/user-guide-v6/tutorials)
 
 ```{note}
