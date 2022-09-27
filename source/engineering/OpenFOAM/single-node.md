@@ -49,7 +49,7 @@ module load apps/openfoam/6
 pisoFoam
 
 echo End Time is $(date) 
-echo "Done pimpleFoam finish"
+echo "Done pisoFoam finish"
 printf "\n\n"
 
 ```
