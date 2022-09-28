@@ -50,7 +50,7 @@ module load apps/openfoam/6
 mpirun -np 112 pisoFoam -parallel 
 
 echo End Time is $(date) 
-echo "Done pimpleFoam finish"
+echo "Done pisoFoam finish"
 printf "\n\n"
 
 ```
