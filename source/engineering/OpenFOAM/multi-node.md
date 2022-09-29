@@ -28,7 +28,7 @@ linenos: true
 #SBATCH -e aai_LD_%j.err
 
 ## system message output file
-#SBATCH -o aai_LD_%j.out
+#SBATCH -o my_job_%j.out
 
 # record some potentially useful details about the job: 
 echo Running on host $(hostname) 
