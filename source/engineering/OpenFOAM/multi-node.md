@@ -42,7 +42,6 @@ printf "\n\n\n\n"
 # Load modules required for runtime e.g.
 module load apps/openfoam/6
 
-#export I_MPI_PROCESS_MANAGER=mpd
 
 
 # Run the solver. Take pisoFoam with 112 processors for example:
