@@ -22,7 +22,6 @@ linenos: true
 #SBATCH --cpus-per-task=1
 
 
-#SBATCH --partition=cpu
 
 ## system error message output file
 ## leave %j as it's being replaced by JOB ID number
