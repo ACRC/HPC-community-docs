@@ -25,7 +25,7 @@ linenos: true
 
 ## system error message output file
 ## leave %j as it's being replaced by JOB ID number
-#SBATCH -e aai_LD_%j.err
+#SBATCH -e my_job_%j.err
 
 ## system message output file
 #SBATCH -o my_job_%j.out
