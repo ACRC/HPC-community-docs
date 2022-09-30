@@ -57,5 +57,5 @@ printf "\n\n"
 For further information on the structure and syntax of Slurm job scripts, see the [ACRC HPC documentation pages on job types](https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/index.html).
 ```
 ### How to use
-Save the script file in the [case folder](https://www.openfoam.com/documentation/user-guide/2-openfoam-cases), and submit it to Slurm after the decomposition of mesh and initial field data. The number of MPI processes to request is the number of nodes times the number of tasks per node. 
+Save the script file in the [case folder](https://www.openfoam.com/documentation/user-guide/2-openfoam-cases), `cd` into the case folder, and submit the script to Slurm after the decomposition of mesh and initial field data. The number of MPI processes to request is the number of nodes times the number of tasks per node. 
 
