@@ -51,4 +51,5 @@ For further information on the structure and syntax of Slurm job scripts, see th
 ```
 
 ### How to use
+
 Save the script file in the [case folder](https://www.openfoam.com/documentation/user-guide/2-openfoam-cases), `cd` into the case folder, and submit the script to Slurm.

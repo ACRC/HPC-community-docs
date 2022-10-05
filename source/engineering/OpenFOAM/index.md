@@ -27,7 +27,8 @@ OpenFOAM is available as a module on BlueCrystal Phase 4, and you can search the
 ```console
 $ module avail openfoam
 ```
-To load the module of version 6 into the shell environment use 
+
+To load the module of version 6 into the shell environment use
 
 ```console
 $ module load apps/openfoam/6
@@ -40,7 +41,9 @@ $ icoFoam -help
 ```
 
 ## Get started
+
 The tutorials in the following link introduce the basic procedures of running OpenFOAM:
+
 - [OpenFOAM tutotrials](https://doc.cfd.direct/openfoam/user-guide-v6/tutorials)
 
 ```{note}

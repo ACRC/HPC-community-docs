@@ -4,7 +4,6 @@ title: "Multi-Node Jobs"
 
 Large OpenFOAM jobs can be run across multiple nodes.
 
-
 ## Job Script Template
 
 Here is an example job submission script for a multi-node OpenFOAM job:
@@ -52,4 +51,5 @@ For further information on the structure and syntax of Slurm job scripts, see th
 ```
 
 ### How to use
-Save the script file in the [case folder](https://www.openfoam.com/documentation/user-guide/2-openfoam-cases), `cd` into the case folder, and submit the script to Slurm. The number of MPI processes to request is the number of nodes times the number of tasks per node. 
+
+Save the script file in the [case folder](https://www.openfoam.com/documentation/user-guide/2-openfoam-cases), `cd` into the case folder, and submit the script to Slurm. The number of MPI processes to request is the number of nodes times the number of tasks per node.
