@@ -9,3 +9,8 @@
   Role: Research Software Engineer
   Contributions: Abaqus user documentation
   GitHub: https://github.com/LKedward
+
+  Name: Guanjiang Chen
+  Role: PhD student
+  Contributions: OpenFOAM user documentation
+  GitHub: https://github.com/chen0mou0mou

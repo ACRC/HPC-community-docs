@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abaqus &mdash; ACRC HPC community documentation  documentation</title>
+  <title>OpenFOAM &mdash; ACRC HPC community documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Single-Node Jobs" href="single-node.html" />
-    <link rel="prev" title="Engineering" href="../index.html" /> 
+    <link rel="prev" title="Troubleshooting" href="../abaqus/troubleshooting.html" /> 
 	<link rel="stylesheet" href="../../_static/css/customise_theme.css" type="text/css" />
 </head>
 
@@ -45,18 +45,17 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Engineering</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Abaqus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../abaqus/index.html">Abaqus</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OpenFOAM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fair-use">Fair Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-started">Get started</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-jobs">Running Jobs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="single-node.html">Single-Node Jobs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="multi-node.html">Multi-Node Jobs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../OpenFOAM/index.html">OpenFOAM</a></li>
 </ul>
 </li>
 </ul>
@@ -76,9 +75,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Engineering</a> &raquo;</li>
-      <li>Abaqus</li>
+      <li>OpenFOAM</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/engineering/abaqus/index.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/engineering/OpenFOAM/index.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -86,87 +85,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="abaqus">
-<h1>Abaqus<a class="headerlink" href="#abaqus" title="Permalink to this heading"></a></h1>
+  <section id="openfoam">
+<h1>OpenFOAM<a class="headerlink" href="#openfoam" title="Permalink to this heading"></a></h1>
 <p>The aim of this guide is to provide basic information and example job scripts
-for how to run Abaqus on the <a class="reference external" href="https://www.bristol.ac.uk/acrc/high-performance-computing/">University of Bristol HPC systems</a>
-BlueCrystal Phase 4 and BluePebble.</p>
+for how to run OpenFOAM on the <a class="reference external" href="https://www.bristol.ac.uk/acrc/high-performance-computing/">University of Bristol HPC systems</a>
+BlueCrystal Phase 4.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The content of this guide is open source, and contributions are welcomed from the Abaqus user community!
+<p>The content of this guide is open source, and contributions are welcomed from the OpenFOAM user community!
 If you see something wrong in this guide or have something to add, then please see <a class="reference external" href="https://acrc.github.io/HPC-community-docs">here</a>
 for how to get involved and contribute.</p>
 </div>
 <p>Some basic familiarity with the Linux command line and remote HPC systems is assumed;
 if you are unfamiliar or need a refresher, then the following courses are recommended:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://altanner.github.io/intro_to_CLI/">Introduction to the command line</a></p></li>
+<li><p><a class="reference external" href="https://alleetanner.github.io/intro_to_CLI/">Introduction to the command line</a></p></li>
 <li><p><a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/training/intro-to-hpc-slurm/index.html">Introduction to High Performance Computing</a></p></li>
 </ul>
+<p>You may also want to refer to the <a class="reference external" href="http://www.openfoam.org/docs/user">official OpenFOAM documentation</a>.</p>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Before using Abaqus at the university, you must first register for an Abaqus license
-<a class="reference external" href="https://forms.office.com/pages/responsepage.aspx?id=MH_ksn3NTkql2rGM8aQVG0Ep7WjCs19BiAIhW6hXMWlUREtGTFQwS0sySUtGNzZON1MzR1A5TUJKMS4u">here</a>.
-Please speak to your supervisor to obtain a charge code for the license.</p>
-</div>
-<p>Abaqus is available as a module on BlueCrystal Phase 4 and BluePebble and can be loaded into the shell environment using</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load apps/abaqus/2018
+<p>OpenFOAM is available as a module on BlueCrystal Phase 4, and you can search the modules available using</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module avail openfoam
 </pre></div>
 </div>
-<p>You can verify if Abaqus has been setup correctly by running the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>abaqus <span class="nv">information</span><span class="o">=</span>version
+<p>To load the module of version 6 into the shell environment use</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load apps/openfoam/6
 </pre></div>
 </div>
-<p>If you are using custom user subroutines, you will also need to load the Intel Fortran compiler:</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-0">
-BlueCrystal (Phase 4)</label><div class="sd-tab-content docutils">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load languages/intel/2020-u4
+<p>You can verify if OpenFOAM has been setup correctly by running the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>icoFoam -help
 </pre></div>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-1">
-BluePebble</label><div class="sd-tab-content docutils">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load lang/intel-parallel-studio-xe/2020
-</pre></div>
-</div>
-</div>
 </div>
 </section>
-<section id="fair-use">
-<h2>Fair Use<a class="headerlink" href="#fair-use" title="Permalink to this heading"></a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Abaqus licenses are shared across the university in a fair-use manner:
-this means that you <strong>should not run a large number of Abaqus jobs
-simultaneously</strong> as this prevents other users from running Abaqus.</p>
-</div>
+<section id="get-started">
+<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this heading"></a></h2>
+<p>The tutorials in the following link introduce the basic procedures of running OpenFOAM:</p>
 <ul class="simple">
-<li><p>You should not be using more than 400 license credits at a time;
-click <a class="reference external" href="http://licmon.fen.bris.ac.uk/licwatch/dsls/index.htm">here</a>
-to see how many license credits you are currently using.</p></li>
-<li><p>As a rough guide, limit yourself to a maximum of 8 non-parallel jobs
-or 3 parallel jobs running simultaneously.</p></li>
-<li><p>If you are running <a class="reference external" href="https://slurm.schedmd.com/sbatch.html#OPT_array">batch array jobs with slurm</a>,
-you can use the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator to limit the maximum number of concurrently running array tasks.</p></li>
+<li><p><a class="reference external" href="https://doc.cfd.direct/openfoam/user-guide-v6/tutorials">OpenFOAM tutotrials</a></p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you have more than 400 licenses in use, then your jobs may be
-terminated without warning to allow others to use the licenses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using <a class="reference external" href="https://www.paraview.org/">ParaView</a> with OpenFOAM on BlueCrystal Phase 4 requires additional setup, which is not covered in this documentation.</p>
 </div>
 </section>
 <section id="running-jobs">
 <h2>Running Jobs<a class="headerlink" href="#running-jobs" title="Permalink to this heading"></a></h2>
+<p>OpenFOAM should be run on BlueCrystal Phase 4 by submitting jobs to Slurm, introduced in the following sections.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="single-node.html">Single-Node Jobs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multi-node.html">Multi-Node Jobs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </div>
 </section>
@@ -176,7 +145,7 @@ terminated without warning to allow others to use the licenses.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Engineering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../abaqus/troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="single-node.html" class="btn btn-neutral float-right" title="Single-Node Jobs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
