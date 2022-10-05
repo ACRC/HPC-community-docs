@@ -92,42 +92,37 @@
 <h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Permalink to this heading"></a></h2>
 <p>Here is an example job submission script for a multi-node OpenFOAM job:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
-<span class="linenos"> 2</span><span class="c1">## Submission script for Cluster</span>
-<span class="linenos"> 3</span><span class="c1">#SBATCH --job-name=my_job</span>
-<span class="linenos"> 4</span><span class="c1">#SBATCH --time=0-01:00:00 # hh:mm:ss</span>
-<span class="linenos"> 5</span><span class="c1">#SBATCH --nodes=4</span>
-<span class="linenos"> 6</span><span class="c1">#SBATCH --ntasks-per-node=28</span>
-<span class="linenos"> 7</span><span class="c1">#SBATCH --cpus-per-task=1</span>
-<span class="linenos"> 8</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="c1">## system error message output file</span>
-<span class="linenos">12</span><span class="c1">## leave %j as it&#39;s being replaced by JOB ID number</span>
-<span class="linenos">13</span><span class="c1">#SBATCH -e my_job_%j.err</span>
+<span class="linenos"> 2</span><span class="c1">#SBATCH --job-name=my_job</span>
+<span class="linenos"> 3</span><span class="c1">#SBATCH --time=0-01:00:00 # hh:mm:ss</span>
+<span class="linenos"> 4</span><span class="c1">#SBATCH --nodes=4</span>
+<span class="linenos"> 5</span><span class="c1">#SBATCH --ntasks-per-node=28</span>
+<span class="linenos"> 6</span><span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1">## system error message output file</span>
+<span class="linenos"> 9</span><span class="c1">## leave %j as it&#39;s being replaced by JOB ID number</span>
+<span class="linenos">10</span><span class="c1">#SBATCH -e my_job_%j.err</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1">## system message output file</span>
+<span class="linenos">13</span><span class="c1">#SBATCH -o my_job_%j.out</span>
 <span class="linenos">14</span>
-<span class="linenos">15</span><span class="c1">## system message output file</span>
-<span class="linenos">16</span><span class="c1">#SBATCH -o my_job_%j.out</span>
-<span class="linenos">17</span>
-<span class="linenos">18</span><span class="c1"># record some potentially useful details about the job: </span>
-<span class="linenos">19</span><span class="nb">echo</span> Running on host <span class="k">$(</span>hostname<span class="k">)</span> 
-<span class="linenos">20</span><span class="nb">echo</span> Time is <span class="k">$(</span>date<span class="k">)</span> 
-<span class="linenos">21</span><span class="nb">echo</span> Directory is <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> 
-<span class="linenos">22</span><span class="nb">echo</span> Slurm job ID is <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span> 
-<span class="linenos">23</span><span class="nb">echo</span> This <span class="nb">jobs</span> runs on the following machines: 
-<span class="linenos">24</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">SLURM_JOB_NODELIST</span><span class="si">}</span> 
-<span class="linenos">25</span><span class="nb">printf</span> <span class="s2">&quot;\n\n\n\n&quot;</span> 
+<span class="linenos">15</span><span class="c1"># record some potentially useful details about the job: </span>
+<span class="linenos">16</span><span class="nb">echo</span> Running on host <span class="k">$(</span>hostname<span class="k">)</span> 
+<span class="linenos">17</span><span class="nb">echo</span> Time is <span class="k">$(</span>date<span class="k">)</span> 
+<span class="linenos">18</span><span class="nb">echo</span> Directory is <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> 
+<span class="linenos">19</span><span class="nb">echo</span> Slurm job ID is <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span> 
+<span class="linenos">20</span><span class="nb">echo</span> This <span class="nb">jobs</span> runs on the following machines: 
+<span class="linenos">21</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">SLURM_JOB_NODELIST</span><span class="si">}</span> 
+<span class="linenos">22</span><span class="nb">printf</span> <span class="s2">&quot;\n\n\n\n&quot;</span> 
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># Load modules required for runtime e.g.</span>
+<span class="linenos">25</span>module load apps/openfoam/6
 <span class="linenos">26</span>
-<span class="linenos">27</span><span class="c1"># Load modules required for runtime e.g.</span>
-<span class="linenos">28</span>module load apps/openfoam/6
+<span class="linenos">27</span><span class="c1"># Run the solver. Take pisoFoam with 112 processors for example:</span>
+<span class="linenos">28</span>mpirun -np <span class="m">112</span> pisoFoam -parallel 
 <span class="linenos">29</span>
-<span class="linenos">30</span>
-<span class="linenos">31</span>
-<span class="linenos">32</span><span class="c1"># Run the solver. Take pisoFoam with 112 processors for example:</span>
-<span class="linenos">33</span>mpirun -np <span class="m">112</span> pisoFoam -parallel 
-<span class="linenos">34</span>
-<span class="linenos">35</span><span class="nb">echo</span> End Time is <span class="k">$(</span>date<span class="k">)</span> 
-<span class="linenos">36</span><span class="nb">echo</span> <span class="s2">&quot;Done pisoFoam finish&quot;</span>
-<span class="linenos">37</span><span class="nb">printf</span> <span class="s2">&quot;\n\n&quot;</span>
+<span class="linenos">30</span><span class="nb">echo</span> End Time is <span class="k">$(</span>date<span class="k">)</span> 
+<span class="linenos">31</span><span class="nb">echo</span> <span class="s2">&quot;Done pisoFoam finish&quot;</span>
+<span class="linenos">32</span><span class="nb">printf</span> <span class="s2">&quot;\n\n&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -136,7 +131,7 @@
 </div>
 <section id="how-to-use">
 <h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h3>
-<p>Save the script file in the <a class="reference external" href="https://www.openfoam.com/documentation/user-guide/2-openfoam-cases">case folder</a>, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the case folder, and submit the script to Slurm after the decomposition of mesh and initial field data. The number of MPI processes to request is the number of nodes times the number of tasks per node.</p>
+<p>Save the script file in the <a class="reference external" href="https://doc.cfd.direct/openfoam/user-guide-v6/cases">case folder</a>, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the case folder, and submit the script to Slurm. The number of MPI processes to request is the number of nodes times the number of tasks per node.</p>
 </section>
 </section>
 </section>
