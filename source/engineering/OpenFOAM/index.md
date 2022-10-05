@@ -3,8 +3,7 @@ title: "OpenFOAM"
 ---
 
 The aim of this guide is to provide basic information and example job scripts
-for how to run OpenFOAM on the [University of Bristol HPC systems](https://www.bristol.ac.uk/acrc/high-performance-computing/)
-BlueCrystal Phase 4.
+for how to run OpenFOAM on the [University of Bristol HPC system](https://www.bristol.ac.uk/acrc/high-performance-computing/) BlueCrystal Phase 4.
 
 ```{note}
 The content of this guide is open source, and contributions are welcomed from the OpenFOAM user community!
