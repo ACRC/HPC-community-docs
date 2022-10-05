@@ -44,7 +44,7 @@ $ icoFoam -help
 
 The tutorials in the following link introduce the basic procedures of running OpenFOAM:
 
-- [OpenFOAM tutotrials](https://doc.cfd.direct/openfoam/user-guide-v6/tutorials)
+- [OpenFOAM tutorials](https://doc.cfd.direct/openfoam/user-guide-v6/tutorials)
 
 ```{note}
 Using [ParaView](https://www.paraview.org/) with OpenFOAM on BlueCrystal Phase 4 requires additional setup, which is not covered in this documentation.
