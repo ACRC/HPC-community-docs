@@ -21,9 +21,8 @@ if you are unfamiliar or need a refresher, then the following courses are recomm
 ## Setup
 
 ```{important}
-Before using Abaqus at the university, you must first register for an Abaqus license
-[here](https://forms.office.com/pages/responsepage.aspx?id=MH_ksn3NTkql2rGM8aQVG0Ep7WjCs19BiAIhW6hXMWlUREtGTFQwS0sySUtGNzZON1MzR1A5TUJKMS4u).
-Please speak to your supervisor to obtain a charge code for the license.
+Before using Abaqus at the university, you must first register for an Abaqus license -  
+speak to your supervisor for how to do this and to obtain a charge code for the license.
 ```
 
 Abaqus is available as a module on BlueCrystal Phase 4 and BluePebble and can be loaded into the shell environment using
@@ -64,7 +63,7 @@ simultaneously__ as this prevents other users from running Abaqus.
 ```
 
 - You should not be using more than 400 license credits at a time;
-  click [here](http://licmon.fen.bris.ac.uk/licwatch/dsls/index.htm)
+  run the command `abaqus licensing dslsstat -usage` in the command line
   to see how many license credits you are currently using.
 - As a rough guide, limit yourself to a maximum of 8 non-parallel jobs
   or 3 parallel jobs running simultaneously.
