@@ -25,6 +25,7 @@ linenos: true
 #SBATCH --cpus-per-task=1 
 #SBATCH --time=0:10:00 
 #SBATCH --mem-per-cpu=4000M
+#SBATCH --account=aero012345
 
 # Load modules 
 module load apps/abaqus/2018
