@@ -78,6 +78,13 @@ terminated without warning to allow others to use the licenses.
 
 ## Running Jobs
 
+```{tip}
+If you are using [Abaci](https://bristolcompositesinstitute.github.io/abaci/index.html)
+to develop and run jobs with user subroutines, you can easily submit HPC jobs
+to SLURM with the
+[`abaci submit` command](https://bristolcompositesinstitute.github.io/abaci/how-to-guides/hpc-job-submission.html). 
+```
+
 ```{toctree}
 ---
 includehidden: true
