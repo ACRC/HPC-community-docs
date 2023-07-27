@@ -21,7 +21,7 @@ if you are unfamiliar or need a refresher, then the following courses are recomm
 ## Setup
 
 ```{important}
-Before using Abaqus at the university, you must first register for an Abaqus license -  
+Before using Abaqus at the university, you must first register for an Abaqus license -
 speak to your supervisor for how to do this and to obtain a charge code for the license.
 ```
 
@@ -81,7 +81,7 @@ terminated without warning to allow others to use the licenses.
 ```{tip}
 If you are using [Abaci](https://bristolcompositesinstitute.github.io/abaci/index.html)
 to develop and run jobs with user subroutines, you can easily submit HPC jobs
-to SLURM with the
+to Slurm with the
 [`abaci submit` command](https://bristolcompositesinstitute.github.io/abaci/how-to-guides/hpc-job-submission.html). 
 ```
 

@@ -59,7 +59,7 @@ will depend on your specific problem. `threads` is recommended and known to work
     - Requesting too little memory (<500M) may cause the compilation or linking of large user subroutines to fail
 
 5. Update the project account (line 9) to match your HPC project code
-    - If you don't know you're HPC project code, you can run the command:
+    - If you don't know your HPC project code, you can run the command:
     
     `sacctmgr show user withassoc format=account where user=$USER`
 
