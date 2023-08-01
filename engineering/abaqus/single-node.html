@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Single-Node Jobs &mdash; ACRC HPC community documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/design-tabs.js"></script>
@@ -32,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ACRC HPC community documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -74,10 +77,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Engineering</a> &raquo;</li>
-          <li><a href="index.html">Abaqus</a> &raquo;</li>
-      <li>Single-Node Jobs</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Engineering</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Abaqus</a></li>
+      <li class="breadcrumb-item active">Single-Node Jobs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/engineering/abaqus/single-node.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,17 +104,18 @@
 <span class="linenos"> 6</span><span class="c1">#SBATCH --cpus-per-task=14</span>
 <span class="linenos"> 7</span><span class="c1">#SBATCH --time=0:10:00 </span>
 <span class="linenos"> 8</span><span class="c1">#SBATCH --mem-per-cpu=4000M</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="c1"># Load modules </span>
-<span class="linenos">11</span>module load apps/abaqus/2018
-<span class="linenos">12</span><span class="c1"># module load languages/intel/2020-u4              # BlueCrystal (Phase 4)</span>
-<span class="linenos">13</span><span class="c1"># module load lang/intel-parallel-studio-xe/2020   # BluePebble</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span><span class="c1"># Unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work </span>
-<span class="linenos">16</span><span class="nb">unset</span> SLURM_GTIDS 
-<span class="linenos">17</span>
-<span class="linenos">18</span><span class="c1"># Launch Abaqus </span>
-<span class="linenos">19</span>abaqus <span class="nv">job</span><span class="o">=</span>&lt;job-name&gt; <span class="nv">cpus</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span> <span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt; <span class="nv">mp_mode</span><span class="o">=</span>threads <span class="nv">double</span><span class="o">=</span>both interactive
+<span class="linenos"> 9</span><span class="c1">#SBATCH --account=aero012345</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Load modules </span>
+<span class="linenos">12</span>module<span class="w"> </span>load<span class="w"> </span>apps/abaqus/2018
+<span class="linenos">13</span><span class="c1"># module load languages/intel/2020-u4              # BlueCrystal (Phase 4)</span>
+<span class="linenos">14</span><span class="c1"># module load lang/intel-parallel-studio-xe/2020   # BluePebble</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work </span>
+<span class="linenos">17</span><span class="nb">unset</span><span class="w"> </span>SLURM_GTIDS<span class="w"> </span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Launch Abaqus </span>
+<span class="linenos">20</span>abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span>&lt;job-name&gt;<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span><span class="w"> </span><span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt;<span class="w"> </span><span class="nv">mp_mode</span><span class="o">=</span>threads<span class="w"> </span><span class="nv">double</span><span class="o">=</span>both<span class="w"> </span>interactive
 </pre></div>
 </div>
 <div class="admonition note">
@@ -122,7 +126,7 @@ will depend on your specific problem. <code class="docutils literal notranslate"
 </div>
 <section id="how-to-use">
 <h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Create a new job file (<em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">job.sh</span></code>) with the template above in a folder in your scratch space</p>
 <ul class="simple">
 <li><p>Copy your Abaqus job file (<code class="docutils literal notranslate"><span class="pre">.inp</span></code>) and Fortran user subroutine (if using) into the same folder</p></li>
@@ -147,9 +151,15 @@ will depend on your specific problem. <code class="docutils literal notranslate"
 <li><p>Requesting too little memory (&lt;500M) may cause the compilation or linking of large user subroutines to fail</p></li>
 </ul>
 </li>
+<li><p>Update the project account (line 9) to match your HPC project code</p>
+<ul class="simple">
+<li><p>If you don’t know your HPC project code, you can run the command:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">sacctmgr</span> <span class="pre">show</span> <span class="pre">user</span> <span class="pre">withassoc</span> <span class="pre">format=account</span> <span class="pre">where</span> <span class="pre">user=$USER</span></code></p>
+</li>
 <li><p>If you are using custom user subroutines:</p>
 <ul class="simple">
-<li><p>Uncomment either line 12 or line 13 to add the Intel Fortran compiler depending on which system you are running on (BlueCrystal or BluePebble)</p></li>
+<li><p>Uncomment either line 13 or line 14 to add the Intel Fortran compiler depending on which system you are running on (BlueCrystal or BluePebble)</p></li>
 <li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;usub-file&gt;</span></code> on the last line with the name of your Fortran user subroutine source file (<em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">usub_czm.f</span></code>)</p></li>
 </ul>
 </li>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abaqus &mdash; ACRC HPC community documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/design-tabs.js"></script>
@@ -32,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ACRC HPC community documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -74,9 +77,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Engineering</a> &raquo;</li>
-      <li>Abaqus</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Engineering</a></li>
+      <li class="breadcrumb-item active">Abaqus</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/engineering/abaqus/index.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,16 +110,15 @@ if you are unfamiliar or need a refresher, then the following courses are recomm
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Before using Abaqus at the university, you must first register for an Abaqus license
-<a class="reference external" href="https://forms.office.com/pages/responsepage.aspx?id=MH_ksn3NTkql2rGM8aQVG0Ep7WjCs19BiAIhW6hXMWlUREtGTFQwS0sySUtGNzZON1MzR1A5TUJKMS4u">here</a>.
-Please speak to your supervisor to obtain a charge code for the license.</p>
+<p>Before using Abaqus at the university, you must first register for an Abaqus license -
+speak to your supervisor for how to do this and to obtain a charge code for the license.</p>
 </div>
 <p>Abaqus is available as a module on BlueCrystal Phase 4 and BluePebble and can be loaded into the shell environment using</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load apps/abaqus/2018
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>apps/abaqus/2018
 </pre></div>
 </div>
 <p>You can verify if Abaqus has been setup correctly by running the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>abaqus <span class="nv">information</span><span class="o">=</span>version
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>abaqus<span class="w"> </span><span class="nv">information</span><span class="o">=</span>version
 </pre></div>
 </div>
 <p>If you are using custom user subroutines, you will also need to load the Intel Fortran compiler:</p>
@@ -124,14 +126,14 @@ Please speak to your supervisor to obtain a charge code for the license.</p>
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
 BlueCrystal (Phase 4)</label><div class="sd-tab-content docutils">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load languages/intel/2020-u4
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>languages/intel/2020-u4
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-1">
 BluePebble</label><div class="sd-tab-content docutils">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module load lang/intel-parallel-studio-xe/2020
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>lang/intel-parallel-studio-xe/2020
 </pre></div>
 </div>
 </div>
@@ -147,7 +149,7 @@ simultaneously</strong> as this prevents other users from running Abaqus.</p>
 </div>
 <ul class="simple">
 <li><p>You should not be using more than 400 license credits at a time;
-click <a class="reference external" href="http://licmon.fen.bris.ac.uk/licwatch/dsls/index.htm">here</a>
+run the command <code class="docutils literal notranslate"><span class="pre">abaqus</span> <span class="pre">licensing</span> <span class="pre">dslsstat</span> <span class="pre">-usage</span></code> in the command line
 to see how many license credits you are currently using.</p></li>
 <li><p>As a rough guide, limit yourself to a maximum of 8 non-parallel jobs
 or 3 parallel jobs running simultaneously.</p></li>
@@ -162,6 +164,13 @@ terminated without warning to allow others to use the licenses.</p>
 </section>
 <section id="running-jobs">
 <h2>Running Jobs<a class="headerlink" href="#running-jobs" title="Permalink to this heading"></a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are using <a class="reference external" href="https://bristolcompositesinstitute.github.io/abaci/index.html">Abaci</a>
+to develop and run jobs with user subroutines, you can easily submit HPC jobs
+to Slurm with the
+<a class="reference external" href="https://bristolcompositesinstitute.github.io/abaci/how-to-guides/hpc-job-submission.html"><code class="docutils literal notranslate"><span class="pre">abaci</span> <span class="pre">submit</span></code> command</a>.</p>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="single-node.html">Single-Node Jobs</a></li>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Single-Node Jobs &mdash; ACRC HPC community documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/design-tabs.js"></script>
@@ -32,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ACRC HPC community documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,10 +76,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Engineering</a> &raquo;</li>
-          <li><a href="index.html">OpenFOAM</a> &raquo;</li>
-      <li>Single-Node Jobs</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Engineering</a></li>
+          <li class="breadcrumb-item"><a href="index.html">OpenFOAM</a></li>
+      <li class="breadcrumb-item active">Single-Node Jobs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/engineering/OpenFOAM/single-node.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,23 +110,23 @@
 <span class="linenos">13</span><span class="c1">#SBATCH -o my_job_%j.out</span>
 <span class="linenos">14</span>
 <span class="linenos">15</span><span class="c1"># record some potentially useful details about the job: </span>
-<span class="linenos">16</span><span class="nb">echo</span> Running on host <span class="k">$(</span>hostname<span class="k">)</span> 
-<span class="linenos">17</span><span class="nb">echo</span> Time is <span class="k">$(</span>date<span class="k">)</span> 
-<span class="linenos">18</span><span class="nb">echo</span> Directory is <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> 
-<span class="linenos">19</span><span class="nb">echo</span> Slurm job ID is <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span> 
-<span class="linenos">20</span><span class="nb">echo</span> This <span class="nb">jobs</span> runs on the following machines: 
-<span class="linenos">21</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">SLURM_JOB_NODELIST</span><span class="si">}</span> 
-<span class="linenos">22</span><span class="nb">printf</span> <span class="s2">&quot;\n\n\n\n&quot;</span> 
+<span class="linenos">16</span><span class="nb">echo</span><span class="w"> </span>Running<span class="w"> </span>on<span class="w"> </span>host<span class="w"> </span><span class="k">$(</span>hostname<span class="k">)</span><span class="w"> </span>
+<span class="linenos">17</span><span class="nb">echo</span><span class="w"> </span>Time<span class="w"> </span>is<span class="w"> </span><span class="k">$(</span>date<span class="k">)</span><span class="w"> </span>
+<span class="linenos">18</span><span class="nb">echo</span><span class="w"> </span>Directory<span class="w"> </span>is<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="w"> </span>
+<span class="linenos">19</span><span class="nb">echo</span><span class="w"> </span>Slurm<span class="w"> </span>job<span class="w"> </span>ID<span class="w"> </span>is<span class="w"> </span><span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span><span class="w"> </span>
+<span class="linenos">20</span><span class="nb">echo</span><span class="w"> </span>This<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>runs<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>machines:<span class="w"> </span>
+<span class="linenos">21</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">SLURM_JOB_NODELIST</span><span class="si">}</span><span class="w"> </span>
+<span class="linenos">22</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\n\n\n\n&quot;</span><span class="w"> </span>
 <span class="linenos">23</span>
 <span class="linenos">24</span><span class="c1"># Load modules required for runtime e.g.</span>
-<span class="linenos">25</span>module load apps/openfoam/6
+<span class="linenos">25</span>module<span class="w"> </span>load<span class="w"> </span>apps/openfoam/6
 <span class="linenos">26</span>
 <span class="linenos">27</span><span class="c1"># Run the solver. Take pisoFoam for example:</span>
 <span class="linenos">28</span>pisoFoam
 <span class="linenos">29</span>
-<span class="linenos">30</span><span class="nb">echo</span> End Time is <span class="k">$(</span>date<span class="k">)</span> 
-<span class="linenos">31</span><span class="nb">echo</span> <span class="s2">&quot;Done pisoFoam finish&quot;</span>
-<span class="linenos">32</span><span class="nb">printf</span> <span class="s2">&quot;\n\n&quot;</span>
+<span class="linenos">30</span><span class="nb">echo</span><span class="w"> </span>End<span class="w"> </span>Time<span class="w"> </span>is<span class="w"> </span><span class="k">$(</span>date<span class="k">)</span><span class="w"> </span>
+<span class="linenos">31</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Done pisoFoam finish&quot;</span>
+<span class="linenos">32</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\n\n&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multi-Node Jobs &mdash; ACRC HPC community documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/design-tabs.js"></script>
@@ -32,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ACRC HPC community documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ACRC HPC community documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -74,10 +77,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Engineering</a> &raquo;</li>
-          <li><a href="index.html">Abaqus</a> &raquo;</li>
-      <li>Multi-Node Jobs</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Engineering</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Abaqus</a></li>
+      <li class="breadcrumb-item active">Multi-Node Jobs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/engineering/abaqus/multi-node.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,27 +109,28 @@ Abaqus/Standard (implicit) does not scale well across multiple nodes.</p>
 <span class="linenos"> 6</span><span class="c1">#SBATCH --cpus-per-task=1 </span>
 <span class="linenos"> 7</span><span class="c1">#SBATCH --time=0:10:00 </span>
 <span class="linenos"> 8</span><span class="c1">#SBATCH --mem-per-cpu=4000M</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="c1"># Load modules </span>
-<span class="linenos">11</span>module load apps/abaqus/2018
-<span class="linenos">12</span><span class="c1"># module load languages/intel/2020-u4              # BlueCrystal (Phase 4)</span>
-<span class="linenos">13</span><span class="c1"># module load lang/intel-parallel-studio-xe/2020   # BluePebble</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span><span class="c1"># Unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work </span>
-<span class="linenos">16</span><span class="nb">unset</span> SLURM_GTIDS 
-<span class="linenos">17</span>
-<span class="linenos">18</span><span class="c1"># Get allocated nodes for Abaqus</span>
-<span class="linenos">19</span><span class="nv">env_file</span><span class="o">=</span>abaqus_v6.env 
-<span class="linenos">20</span><span class="nv">node_list</span><span class="o">=</span><span class="k">$(</span>scontrol show hostname <span class="si">${</span><span class="nv">SLURM_NODELIST</span><span class="si">}</span> <span class="p">|</span> sort -u<span class="k">)</span> 
-<span class="linenos">21</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;[&quot;</span> 
-<span class="linenos">22</span><span class="k">for</span> host <span class="k">in</span> <span class="si">${</span><span class="nv">node_list</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span> 
-<span class="linenos">23</span>    <span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">[&#39;</span><span class="nv">$host</span><span class="s2">&#39;, </span><span class="si">${</span><span class="nv">SLURM_CPUS_ON_NODE</span><span class="si">}</span><span class="s2">],&quot;</span> 
-<span class="linenos">24</span><span class="k">done</span> 
-<span class="linenos">25</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span> <span class="p">|</span> sed -e <span class="s2">&quot;s/,</span>$<span class="s2">/]/&quot;</span><span class="k">)</span> 
-<span class="linenos">26</span><span class="nb">echo</span> <span class="s2">&quot;mp_host_list=</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">&quot;</span>  &gt;&gt; <span class="si">${</span><span class="nv">env_file</span><span class="si">}</span> 
-<span class="linenos">27</span>
-<span class="linenos">28</span><span class="c1"># Launch Abaqus </span>
-<span class="linenos">29</span>abaqus <span class="nv">job</span><span class="o">=</span>&lt;job-name&gt; <span class="nv">cpus</span><span class="o">=</span><span class="k">$((</span>SLURM_NTASKS_PER_NODE*SLURM_NNODES<span class="k">))</span> <span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt; <span class="nv">mp_mode</span><span class="o">=</span>mpi <span class="nv">double</span><span class="o">=</span>both interactive
+<span class="linenos"> 9</span><span class="c1">#SBATCH --account=aero012345</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Load modules </span>
+<span class="linenos">12</span>module<span class="w"> </span>load<span class="w"> </span>apps/abaqus/2018
+<span class="linenos">13</span><span class="c1"># module load languages/intel/2020-u4              # BlueCrystal (Phase 4)</span>
+<span class="linenos">14</span><span class="c1"># module load lang/intel-parallel-studio-xe/2020   # BluePebble</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work </span>
+<span class="linenos">17</span><span class="nb">unset</span><span class="w"> </span>SLURM_GTIDS<span class="w"> </span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Get allocated nodes for Abaqus</span>
+<span class="linenos">20</span><span class="nv">env_file</span><span class="o">=</span>abaqus_v6.env<span class="w"> </span>
+<span class="linenos">21</span><span class="nv">node_list</span><span class="o">=</span><span class="k">$(</span>scontrol<span class="w"> </span>show<span class="w"> </span>hostname<span class="w"> </span><span class="si">${</span><span class="nv">SLURM_NODELIST</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span>
+<span class="linenos">22</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;[&quot;</span><span class="w"> </span>
+<span class="linenos">23</span><span class="k">for</span><span class="w"> </span>host<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">node_list</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>
+<span class="linenos">24</span><span class="w">    </span><span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">[&#39;</span><span class="nv">$host</span><span class="s2">&#39;, </span><span class="si">${</span><span class="nv">SLURM_CPUS_ON_NODE</span><span class="si">}</span><span class="s2">],&quot;</span><span class="w"> </span>
+<span class="linenos">25</span><span class="k">done</span><span class="w"> </span>
+<span class="linenos">26</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;s/,</span>$<span class="s2">/]/&quot;</span><span class="k">)</span><span class="w"> </span>
+<span class="linenos">27</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mp_host_list=</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">  </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">env_file</span><span class="si">}</span><span class="w"> </span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="c1"># Launch Abaqus </span>
+<span class="linenos">30</span>abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span>&lt;job-name&gt;<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="k">$((</span><span class="nv">SLURM_NTASKS_PER_NODE</span><span class="o">*</span><span class="nv">SLURM_NNODES</span><span class="k">))</span><span class="w"> </span><span class="nv">user</span><span class="o">=</span>&lt;usub-file&gt;<span class="w"> </span><span class="nv">mp_mode</span><span class="o">=</span>mpi<span class="w"> </span><span class="nv">double</span><span class="o">=</span>both<span class="w"> </span>interactive
 </pre></div>
 </div>
 <p>There are number of important differences with the single-node job script example:</p>
