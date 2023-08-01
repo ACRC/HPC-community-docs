@@ -12,8 +12,8 @@ ERROR 1A000035: License not authorized for this user
 ```
 
 If you receive this error when trying to run Abaqus, then you first need to
-register for a university Abaqus license
-[here](https://forms.office.com/pages/responsepage.aspx?id=MH_ksn3NTkql2rGM8aQVG0Ep7WjCs19BiAIhW6hXMWlUREtGTFQwS0sySUtGNzZON1MzR1A5TUJKMS4u).
+register for a university Abaqus license - speak to your supervisor about
+how to do this.
 
 
 ## Out of Memory

@@ -20,6 +20,7 @@ linenos: true
 #SBATCH --cpus-per-task=14
 #SBATCH --time=0:10:00 
 #SBATCH --mem-per-cpu=4000M
+#SBATCH --account=aero012345
 
 # Load modules 
 module load apps/abaqus/2018
@@ -57,13 +58,18 @@ will depend on your specific problem. `threads` is recommended and known to work
     - Increase this value if you encounter an `oom-kill` or `out-of-memory` error message in your output file
     - Requesting too little memory (<500M) may cause the compilation or linking of large user subroutines to fail
 
-5. If you are using custom user subroutines:
-    - Uncomment either line 12 or line 13 to add the Intel Fortran compiler depending on which system you are running on (BlueCrystal or BluePebble)
+5. Update the project account (line 9) to match your HPC project code
+    - If you don't know your HPC project code, you can run the command:
+    
+    `sacctmgr show user withassoc format=account where user=$USER`
+
+6. If you are using custom user subroutines:
+    - Uncomment either line 13 or line 14 to add the Intel Fortran compiler depending on which system you are running on (BlueCrystal or BluePebble)
     - Replace `<usub-file>` on the last line with the name of your Fortran user subroutine source file (_e.g._ `usub_czm.f`)
 
-6. Replace `<job-name>` on the last line with the name of your Abaqus job input file (`.inp`)
+7. Replace `<job-name>` on the last line with the name of your Abaqus job input file (`.inp`)
 
-7. Submit the job to slurm:
+8. Submit the job to slurm:
     - Change directory (`cd`) into the folder containing your job files and job script
     - Run `$ sbatch job.sh` where `job.sh` is the name of your job script
 
