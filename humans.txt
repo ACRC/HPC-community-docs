@@ -17,6 +17,6 @@
 
   Name: Marton Balazs
   Role: IT-rep for the School of Mathematics
-  Contributions: Interactive sessions and ssh tunneling documentation
+  Contributions: Interactive sessions documentation
   GitHub: https://github.com/martonbalazs
   Site: https://people.maths.bris.ac.uk/~mb13434/

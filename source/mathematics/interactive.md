@@ -34,7 +34,7 @@ $ maple
 1. Connect to the login node, as described [here](https://www.acrc.bris.ac.uk/protected/hpc-docs/connecting/index.html) including the X11 bits.
 2. Once on the login node, do
 ```console
-salloc --account=MATHXXXXXX --partition=magma --mem=1gb --time=00:01:00
+$ salloc --account=MATHXXXXXX --partition=magma --mem=1gb --time=00:01:00
 ```
 again adjust the time from 1 minute to what you need, and please remove `--partition=magma` if you have a heavy job to run for hours or days. This will say something like
 ```console
@@ -42,9 +42,9 @@ salloc: Nodes bp1-compute169 are ready for job
 ```
 3. Do
 ```console
-ssh -X bp1-compute169
+$ ssh -X bp1-compute169
 ```
-(or whichever node was allocated to you in the previous step); tab completion works. Then
+(with whichever node was allocated to you in the previous step); tab completion works. Then
 ```console
 $ module load apps/maple
 ```
