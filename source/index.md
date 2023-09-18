@@ -32,7 +32,7 @@ maxdepth: 2
 caption: "Contents:"
 ---
 engineering/index
-mathematics/interactive
+mathematics/index
 ```
 
 # Credits and licenses
