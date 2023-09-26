@@ -2,6 +2,15 @@
 title: "Interactive sessions"
 ---
 
+:::{warning}
+Interactive sessions should only be used by users or groups who require interactive access to compute nodes and have access to sufficient resources (e.g. a private partition) to support interactive use.
+Interactive sessions **do not** bypass the job scheduler and should not be expected to start immediately.
+
+The ACRC HPC team recommend the use of non-interactive batch jobs where possible, since these facilitate efficient job scheduling. The team will not provide support for interactive sessions when non-interactive batch jobs are a viable alternative.
+
+Jobs that waste cluster resources may be held or deleted, according to the [ACRC HPC usage policy](https://www.bristol.ac.uk/acrc/high-performance-computing/hpc-systems-policy/acrc-hpc-usage-policy/). This includes interactive jobs. Please ensure you use cluster resources responsibly and efficiently.
+:::
+
 These are instructions on getting quick interactive sessions on BluePebble, assuming you already have login to this cluster and a project code. As this is primarily aimed for the School of Mathematics, we'll refer to the HPC project code to be in the form MATHXXXXXX, but this could be in a different format for other faculties/departments.
 
 The School of Mathematics ringfenced a few of its nodes with the software [Magma](http://magma.maths.usyd.edu.au/magma/) installed on them into the "magma" partition, and we also use this partition for quick interactive testing.
