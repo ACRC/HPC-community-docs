@@ -3,9 +3,9 @@ title: "Interactive sessions"
 ---
 
 :::{warning}
-The ACRC HPC team recommend the use of non-interactive batch jobs where possible, since these facilitate efficient job scheduling. Interactive sessions on compute nodes are not supported on ACRC HPC systems unless submitted to private partitions, or following discussion with the [HPC team](mailto:hpc-help@bristol.ac.uk).
+Interactive sessions on compute nodes are not supported on ACRC HPC systems unless submitted to private partitions, or following discussion with the [ACRC HPC team](mailto:hpc-help@bristol.ac.uk).
 
-Interactive sessions **do not** bypass the job scheduler and should not be expected to start immediately.
+The ACRC HPC team recommend the use of non-interactive batch jobs where possible, since these facilitate efficient job scheduling. Interactive sessions **do not** bypass the job scheduler and should not be expected to start immediately.
 
 Jobs that waste cluster resources may be held or deleted, in accordance with the [ACRC HPC usage policy](https://www.bristol.ac.uk/acrc/high-performance-computing/hpc-systems-policy/acrc-hpc-usage-policy/). This includes interactive jobs. Please ensure you use cluster resources responsibly and efficiently.
 :::
