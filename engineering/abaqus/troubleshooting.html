@@ -12,12 +12,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../OpenFOAM/index.html">OpenFOAM</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../mathematics/index.html">Mathematics</a></li>
 </ul>
 
         </div>
@@ -91,9 +92,9 @@
            <div itemprop="articleBody">
              
   <section id="troubleshooting">
-<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
 <section id="license-not-authorized-for-user">
-<h2>License not Authorized for User<a class="headerlink" href="#license-not-authorized-for-user" title="Permalink to this heading"></a></h2>
+<h2>License not Authorized for User<a class="headerlink" href="#license-not-authorized-for-user" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Failed to checkout DSLS license for: QAE
 ERROR 1A000035: License not authorized for this user
 ...
@@ -104,7 +105,7 @@ register for a university Abaqus license - speak to your supervisor about
 how to do this.</p>
 </section>
 <section id="out-of-memory">
-<h2>Out of Memory<a class="headerlink" href="#out-of-memory" title="Permalink to this heading"></a></h2>
+<h2>Out of Memory<a class="headerlink" href="#out-of-memory" title="Link to this heading"></a></h2>
 <p>If you do not request sufficient memory for your job, then it may be terminated by
 the job scheduler with the following error message (check the log output files):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>slurmstepd: error: Detect 1 oom-kill event(s) in StepId=xxxxxx.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
@@ -118,7 +119,7 @@ aborted with system error &quot;Termination signal&quot; (signal 9)
 <p>You can address this issue by increasing the requested <code class="docutils literal notranslate"><span class="pre">--mem-per-cpu</span></code> in your job submission script.</p>
 </section>
 <section id="problem-during-linking">
-<h2>Problem During Linking<a class="headerlink" href="#problem-during-linking" title="Permalink to this heading"></a></h2>
+<h2>Problem During Linking<a class="headerlink" href="#problem-during-linking" title="Link to this heading"></a></h2>
 <p>The compilation and linking of large complex user subroutines may require much more memory
 than the actual Abaqus job that you intend to run.</p>
 <p>If you encounter an error similar to the following:</p>
@@ -129,7 +130,7 @@ Abaqus Error: Problem during Linking ...
 <p>Then you should check that your requested memory limit is not too low (&lt;500M) and try increasing it.</p>
 </section>
 <section id="node-configuration-not-available">
-<h2>Node Configuration not Available<a class="headerlink" href="#node-configuration-not-available" title="Permalink to this heading"></a></h2>
+<h2>Node Configuration not Available<a class="headerlink" href="#node-configuration-not-available" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sbatch: error: Batch job submission failed: Requested node configuration is not available
 </pre></div>
 </div>
@@ -144,7 +145,7 @@ You can find out how much RAM is available per node in the ACRC HPC documentatio
 </div>
 </section>
 <section id="job-terminates-immediately">
-<h2>Job Terminates Immediately<a class="headerlink" href="#job-terminates-immediately" title="Permalink to this heading"></a></h2>
+<h2>Job Terminates Immediately<a class="headerlink" href="#job-terminates-immediately" title="Link to this heading"></a></h2>
 <p>If your job ends immediately after starting, make sure you have specified the <code class="docutils literal notranslate"><span class="pre">interactive</span></code>
 keyword for Abaqus in your job script.</p>
 <p><strong>Example:</strong></p>
@@ -153,7 +154,7 @@ keyword for Abaqus in your job script.</p>
 </div>
 </section>
 <section id="job-terminates-unexpectedly">
-<h2>Job Terminates Unexpectedly<a class="headerlink" href="#job-terminates-unexpectedly" title="Permalink to this heading"></a></h2>
+<h2>Job Terminates Unexpectedly<a class="headerlink" href="#job-terminates-unexpectedly" title="Link to this heading"></a></h2>
 <p>If your jobs ends before the allotted maximum time, make sure you are running the job
 in your <em>scratch</em> space (<code class="docutils literal notranslate"><span class="pre">/user/work/&lt;username&gt;</span></code>) and not your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> space (<code class="docutils literal notranslate"><span class="pre">/user/home/&lt;username&gt;</span></code>).</p>
 <p>Make sure also that you have enough space remaining in your scratch space;

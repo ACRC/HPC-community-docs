@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive sessions &mdash; ACRC HPC community documentation  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Mathematics" href="index.html" /> 
+	<link rel="stylesheet" href="../_static/css/customise_theme.css" type="text/css" />
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ACRC HPC community documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../engineering/index.html">Engineering</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematics</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Interactive sessions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-don-t-need-a-graphical-interface">If you don’t need a graphical interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-graphical-interface-gui">For graphical interface (GUI)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ACRC HPC community documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Mathematics</a></li>
+      <li class="breadcrumb-item active">Interactive sessions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/mathematics/interactive.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interactive-sessions">
+<h1>Interactive sessions<a class="headerlink" href="#interactive-sessions" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Interactive sessions on compute nodes are not supported on ACRC HPC systems unless submitted to private partitions, or following discussion with the <a class="reference external" href="mailto:hpc-help&#37;&#52;&#48;bristol&#46;ac&#46;uk">ACRC HPC team</a>.</p>
+<p>The ACRC HPC team recommend the use of non-interactive batch jobs where possible, since these facilitate efficient job scheduling. Interactive sessions <strong>do not</strong> bypass the job scheduler and should not be expected to start immediately.</p>
+<p>Jobs that waste cluster resources may be held or deleted, in accordance with the <a class="reference external" href="https://www.bristol.ac.uk/acrc/high-performance-computing/hpc-systems-policy/acrc-hpc-usage-policy/">ACRC HPC usage policy</a>. This includes interactive jobs. Please ensure you use cluster resources responsibly and efficiently.</p>
+</div>
+<p>These are instructions on getting quick interactive sessions on BluePebble, assuming you already have login to this cluster and a project code. As this is primarily aimed for the School of Mathematics, we’ll refer to the HPC project code to be in the form MATHXXXXXX, but this could be in a different format for other faculties/departments.</p>
+<p>The School of Mathematics ringfenced a few of its nodes with the software <a class="reference external" href="http://magma.maths.usyd.edu.au/magma/">Magma</a> installed on them into the “magma” partition, and we also use this partition for quick interactive testing.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The “magma” partition is for quick interactive testing besides making the software Magma available here. If you need to run a large or long-running job (e.g. that takes hours or days) that does not require the Magma package, please remove any reference to the “magma” partition from the below and use one of the other partitions on BluePebble, such as the default “compute” partition.</p>
+</div>
+<p>We use maple/xmaple as an example but comsol, magma, math/mathematica, etc work similarly.</p>
+<section id="if-you-don-t-need-a-graphical-interface">
+<h2>If you don’t need a graphical interface<a class="headerlink" href="#if-you-don-t-need-a-graphical-interface" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Connect to the login node, as described <a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/connecting/index.html">here</a>. For this you don’t need X11 forwarding.</p></li>
+<li><p>Once you are on the login node, do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>srun<span class="w"> </span>--account<span class="o">=</span>MATHXXXXXX<span class="w"> </span>--partition<span class="o">=</span>magma<span class="w"> </span>--mem<span class="o">=</span>1G<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:01:00<span class="w"> </span>--pty<span class="w"> </span>bash<span class="w"> </span>-i
+</pre></div>
+</div>
+<p>to get an interactive session on one of our ringfenced nodes for quick interactive sessions. Login nodes are intended for small scale interactive work. This command allows us to create an interactive session on a compute node for more intensive interactive work. Notice that the above gives you a terminal for 1 minute with 1 GB memory and the default number of CPU cores (1) – please change this to specify the time and resources you need. Also, remember to save your work often as your terminal will be killed after the requested time.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Without <code class="docutils literal notranslate"><span class="pre">--partition=magma</span></code> you are in the general BluePebble pool with far more nodes but usually longer waiting times, but this is the place to submit longer, heavy computations rather than our “magma” partition.</p>
+</div>
+</li>
+<li><p>In the interactive session do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>apps/maple
+</pre></div>
+</div>
+<p>(tab works for autocompletions). Then launch</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>maple
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="for-graphical-interface-gui">
+<h2>For graphical interface (GUI)<a class="headerlink" href="#for-graphical-interface-gui" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Connect to the login node, as described <a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/connecting/index.html">here</a> including the X11 bits.</p></li>
+<li><p>Once on the login node, do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>salloc<span class="w"> </span>--account<span class="o">=</span>MATHXXXXXX<span class="w"> </span>--partition<span class="o">=</span>magma<span class="w"> </span>--mem<span class="o">=</span>1G<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:01:00
+</pre></div>
+</div>
+<p>again adjust the command to request the time and resources to what you need, and please remove <code class="docutils literal notranslate"><span class="pre">--partition=magma</span></code> if you have a heavy job to run for hours or days. This will say something like</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc: Pending job allocation 6434337</span>
+<span class="go">salloc: job 6434337 queued and waiting for resources</span>
+<span class="go">salloc: job 6434337 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 6434337</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes bp1-compute169 are ready for job</span>
+</pre></div>
+</div>
+<p>In some cases you may need to wait for this allocation to start (e.g., if not using the “magma” partition).</p>
+</li>
+<li><p>Do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh<span class="w"> </span>-X<span class="w"> </span>bp1-compute169
+</pre></div>
+</div>
+<p>(using whichever node was allocated to you in the previous step); tab completion works here too. Then</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>apps/maple
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>xmaple
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Mathematics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, University of Bristol.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

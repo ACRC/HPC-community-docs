@@ -12,15 +12,16 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mathematics" href="../../mathematics/index.html" />
     <link rel="prev" title="Single-Node Jobs" href="single-node.html" /> 
 	<link rel="stylesheet" href="../../_static/css/customise_theme.css" type="text/css" />
 </head>
@@ -60,6 +61,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../mathematics/index.html">Mathematics</a></li>
 </ul>
 
         </div>
@@ -89,10 +91,10 @@
            <div itemprop="articleBody">
              
   <section id="multi-node-jobs">
-<h1>Multi-Node Jobs<a class="headerlink" href="#multi-node-jobs" title="Permalink to this heading"></a></h1>
+<h1>Multi-Node Jobs<a class="headerlink" href="#multi-node-jobs" title="Link to this heading"></a></h1>
 <p>Large OpenFOAM jobs can be run across multiple nodes.</p>
 <section id="job-script-template">
-<h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Permalink to this heading"></a></h2>
+<h2>Job Script Template<a class="headerlink" href="#job-script-template" title="Link to this heading"></a></h2>
 <p>Here is an example job submission script for a multi-node OpenFOAM job:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
 <span class="linenos"> 2</span><span class="c1">#SBATCH --job-name=my_job</span>
@@ -133,7 +135,7 @@
 <p>For further information on the structure and syntax of Slurm job scripts, see the <a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/index.html">ACRC HPC documentation pages on job types</a>.</p>
 </div>
 <section id="how-to-use">
-<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h3>
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Link to this heading"></a></h3>
 <p>Save the script file in the <a class="reference external" href="https://doc.cfd.direct/openfoam/user-guide-v6/cases">case folder</a>, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the case folder, and submit the script to Slurm. The number of MPI processes to request is the number of nodes times the number of tasks per node.</p>
 </section>
 </section>
@@ -144,6 +146,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="single-node.html" class="btn btn-neutral float-left" title="Single-Node Jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../mathematics/index.html" class="btn btn-neutral float-right" title="Mathematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

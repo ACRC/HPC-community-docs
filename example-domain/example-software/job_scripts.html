@@ -12,12 +12,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -46,6 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../engineering/index.html">Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mathematics/index.html">Mathematics</a></li>
 </ul>
 
         </div>
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="job-scripts">
-<h1>Job scripts<a class="headerlink" href="#job-scripts" title="Permalink to this heading"></a></h1>
+<h1>Job scripts<a class="headerlink" href="#job-scripts" title="Link to this heading"></a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This is an example which demonstrates the recommended structure of documentation included in the HPC Community Documentation project.
@@ -81,7 +82,7 @@ The text refers to a fictional research domain “Example domain” and associat
 <p>If you are authoring documentation to contribute to the HPC Community Documentation project, please feel free to use this example as a starting point.</p>
 </div>
 <section id="serial-example-software-job">
-<h2>Serial Example Software job<a class="headerlink" href="#serial-example-software-job" title="Permalink to this heading"></a></h2>
+<h2>Serial Example Software job<a class="headerlink" href="#serial-example-software-job" title="Link to this heading"></a></h2>
 <p>Small scale Example Software jobs can be run in serial, using a single core.
 Here is an example where Example Software processes the input file <code class="docutils literal notranslate"><span class="pre">example.in</span></code>, producing output <code class="docutils literal notranslate"><span class="pre">example.out</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
@@ -103,7 +104,7 @@ Here is an example where Example Software processes the input file <code class="
 </div>
 <p>You may need to adjust the walltime (<code class="docutils literal notranslate"><span class="pre">--time</span></code>) and memory (<code class="docutils literal notranslate"><span class="pre">--mem</span></code>) requested, depending on how demanding your simulation is.</p>
 <section id="array-jobs">
-<h3>Array jobs<a class="headerlink" href="#array-jobs" title="Permalink to this heading"></a></h3>
+<h3>Array jobs<a class="headerlink" href="#array-jobs" title="Link to this heading"></a></h3>
 <p>A common use case for Example Software on HPC is to run many small, single-core, jobs, each with different input parameters.
 The results of the jobs can then be collected and statistically analysed.
 This can be achieved using an <a class="reference external" href="https://www.acrc.bris.ac.uk/protected/hpc-docs/job_types/array.html#array-jobs">array job</a>, for example:</p>
@@ -130,7 +131,7 @@ The array index is used to select a input file (<code class="docutils literal no
 </section>
 </section>
 <section id="parallel-example-software-job">
-<h2>Parallel Example Software job<a class="headerlink" href="#parallel-example-software-job" title="Permalink to this heading"></a></h2>
+<h2>Parallel Example Software job<a class="headerlink" href="#parallel-example-software-job" title="Link to this heading"></a></h2>
 <p>For larger scale jobs, per-job parallelism may be useful. Example Software can make use of threaded parallelism via OpenMP on a single node. In the following example, the <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> environment variable is set to the number of CPUs per task requested (in this case 28, as this is how many cores there are per BlueCrystal 4 compute node). The number of threads is also set using the Example Software command line option <code class="docutils literal notranslate"><span class="pre">-n</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/bin/bash</span>
 <span class="linenos"> 2</span>
